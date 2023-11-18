@@ -1,9 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyBills" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/royal_blue</item>
+        <item name="colorSecondary">@color/light_blue</item>
+        <item name="colorAccent">@color/light_blue</item>
+        <item name="colorTertiary">@color/green</item>
     </style>
 
     <style name="Theme.MyBills" parent="Base.Theme.MyBills" />
+
+    <style name="Theme.AppCompat.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/royal_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.MyBills</item>
+    </style>
+
+    <style name="ThemeOverlay.MyBills.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

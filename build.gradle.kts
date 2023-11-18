@@ -1,3 +1,11 @@
+buildscript {
+    // Signing config keys
+    val keyStorePassword by extra("enspd-mybills-debug1402")
+    val keyAlias by extra("debugKey")
+    val keyDebugPassword by extra("enspd-mybills-debug14")
+    val debugKeyFile by extra("C:\\Users\\pascal\\Documents\\GitHub\\Project\\ENSPD\\MyBills\\app\\keys\\debug\\debugSigningKey.jks")
+}
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id("com.android.application") version "8.1.3" apply false
@@ -7,3 +15,4 @@ plugins {
     // Hilt
     id("com.google.dagger.hilt.android") version "2.48.1" apply false
 }
+

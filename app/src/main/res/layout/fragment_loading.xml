@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.fragments.LoadingFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/royal_blue">
+
+        <ImageView
+            android:id="@+id/fragment_loading_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_huge"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_loading_citation"
+            style="@style/FancyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="@string/citation_message"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_loading_logo_image"
+            app:layout_constraintStart_toStartOf="@+id/fragment_loading_logo_image"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_loading_logo_image" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:contentDescription="@string/quote_left"
+            android:src="@drawable/quote_left"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_loading_citation"
+            app:layout_constraintTop_toTopOf="@+id/fragment_loading_citation" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:contentDescription="@string/quote_right"
+            android:src="@drawable/quote_right"
+            app:layout_constraintStart_toEndOf="@+id/fragment_loading_citation"
+            app:layout_constraintTop_toTopOf="@+id/fragment_loading_citation" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_loading_citation"
+            app:layout_constraintStart_toStartOf="@+id/fragment_loading_citation"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_loading_citation" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/deco"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

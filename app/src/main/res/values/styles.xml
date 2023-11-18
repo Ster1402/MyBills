@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dividers-->
+    <style name="DividerSolidCard">
+        <item name="android:layout_width">@dimen/divider_width_large</item>
+        <item name="android:layout_height">@dimen/divider_height_normal</item>
+        <item name="cardBackgroundColor">@color/dark_gray</item>
+    </style>
+
+    <style name="DividerDashedImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="srcCompat">@drawable/divider_dashed</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="Widget.Theme.MyBills.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+</resources>

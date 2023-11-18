@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.fragments.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no">
+
+        <ImageView
+            android:id="@+id/fragment_login_deco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/deco_dark" />
+
+        <TextView
+            android:id="@+id/fragment_login_title"
+            style="@style/AuthTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_text_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_login_divider_solid"
+            style="@style/DividerSolidCard"
+            android:layout_width="@dimen/divider_width_large"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_login_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_login_username"
+            style="@style/InputText"
+            android:layout_marginTop="@dimen/spacing_huge"
+            android:hint="@string/label_input_username"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_login_divider_solid"
+            app:layout_constraintStart_toStartOf="@+id/fragment_login_divider_solid"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_login_divider_solid">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/input_padding"
+                android:paddingEnd="@dimen/input_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_login_password"
+            style="@style/InputText"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:hint="@string/label_input_password"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:layout_constraintEnd_toEndOf="@id/fragment_login_username"
+            app:layout_constraintStart_toStartOf="@id/fragment_login_username"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_username"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/dark_gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/input_padding"
+                android:paddingEnd="@dimen/input_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/fragment_login_divider_dashed"
+            style="@style/DividerDashedImage"
+            android:importantForAccessibility="no"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_password" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/PrimaryButton"
+            android:text="@string/button_text_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_divider_dashed" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button">
+
+            <TextView
+                android:id="@+id/fragment_login_message_login"
+                style="@style/InfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/question_message_login"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/fragment_login_btn_register"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_text_register" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
