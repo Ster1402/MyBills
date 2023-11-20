@@ -1,4 +1,12 @@
 buildscript {
+    repositories {
+        google()
+    }
+
+    dependencies {
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.5")
+    }
+    
     // Signing config keys
     val keyStorePassword by extra("enspd-mybills-debug1402")
     val keyAlias by extra("debugKey")

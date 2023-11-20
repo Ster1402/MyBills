@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
 import com.sterdevs.mybills.ui.viewmodels.LoginViewModel
@@ -21,6 +22,12 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        // Go to register
+        binding.fragmentLoginBtnRegister.setOnClickListener {
+            it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
         return binding.root
     }
 

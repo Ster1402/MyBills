@@ -13,15 +13,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Show splashscreen
-        Thread.sleep(3000)
-        installSplashScreen()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Thread.sleep(2000)
-        val intent = Intent(applicationContext, AuthActivity::class.java)
-        startActivity(intent)
     }
 }
