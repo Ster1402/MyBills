@@ -6,12 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.views.activities.AuthActivity">
 
-    <include
-        layout="@layout/fragment_login"
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/activity_auth_fragment_container"
+        android:name="com.sterdevs.mybills.ui.views.fragments.LoginFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

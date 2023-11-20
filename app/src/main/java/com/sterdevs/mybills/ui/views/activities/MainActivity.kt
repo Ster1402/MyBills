@@ -1,5 +1,6 @@
-package com.sterdevs.mybills
+package com.sterdevs.mybills.ui.views.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -18,5 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Thread.sleep(2000)
+        val intent = Intent(applicationContext, AuthActivity::class.java)
+        startActivity(intent)
     }
 }

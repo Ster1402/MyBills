@@ -30,6 +30,7 @@ render.experimental.xml
 
 # Keystore files
 *.jks
+!*debug*.jks
 *.keystore
 
 # Google Services (e.g. APIs or Firebase)
