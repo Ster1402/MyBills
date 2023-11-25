@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.views.fragments
+package com.sterdevs.mybills.features.authentication.ui.views.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
-import com.sterdevs.mybills.ui.viewmodels.LoginViewModel
+import com.sterdevs.mybills.features.authentication.ui.viewmodels.LoginViewModel
 
 class LoginFragment : Fragment() {
 

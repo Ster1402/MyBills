@@ -7,20 +7,25 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.sterdevs.mybills.ui.views.fragments.LoginFragment"
+        android:name="com.sterdevs.mybills.features.authentication.ui.views.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/anim_auth_fragment_transition_enter"
+            app:exitAnim="@anim/anim_auth_fragment_transition_exit" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.sterdevs.mybills.ui.views.fragments.RegisterFragment"
+        android:name="com.sterdevs.mybills.features.authentication.ui.views.fragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/anim_auth_fragment_transition_enter"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/anim_auth_fragment_transition_exit" />
     </fragment>
 </navigation>

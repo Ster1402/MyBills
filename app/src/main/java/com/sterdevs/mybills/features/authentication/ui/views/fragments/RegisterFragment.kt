@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.views.fragments
+package com.sterdevs.mybills.features.authentication.ui.views.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentRegisterBinding
-import com.sterdevs.mybills.ui.viewmodels.RegisterViewModel
+import com.sterdevs.mybills.features.authentication.ui.viewmodels.RegisterViewModel
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding

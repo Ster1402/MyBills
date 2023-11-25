@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.views.fragments
+package com.sterdevs.mybills.commons.ui.views.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

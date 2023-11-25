@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.viewmodels
+package com.sterdevs.mybills.features.authentication.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 

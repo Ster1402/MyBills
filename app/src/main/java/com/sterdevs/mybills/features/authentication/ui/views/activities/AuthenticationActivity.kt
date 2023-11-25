@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.views.activities
+package com.sterdevs.mybills.features.authentication.ui.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

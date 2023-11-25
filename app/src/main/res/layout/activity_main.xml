@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.views.activities.MainActivity">
+    tools:context=".features.home.ui.views.activities.MainActivity">
 
     <include
         layout="@layout/fragment_register"

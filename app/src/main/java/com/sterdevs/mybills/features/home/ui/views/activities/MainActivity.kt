@@ -1,12 +1,8 @@
-package com.sterdevs.mybills.ui.views.activities
+package com.sterdevs.mybills.features.home.ui.views.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.google.android.material.snackbar.Snackbar
 import com.sterdevs.mybills.databinding.ActivityMainBinding
-import java.time.Instant
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
