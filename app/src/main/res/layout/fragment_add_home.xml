@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    tools:context=".ui.views.fragments.AddHomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_remove_24"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center|top"/>
+
+        <ImageView
+            android:id="@+id/button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:clickable="true"
+            android:src="@drawable/baseline_close_24" />
+        <TextView
+            android:id="@+id/fragment_add_home_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20dp"
+            android:text="@string/title_text_add_home"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/fragment_add_home_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="-10dp"
+            android:text="@string/title_text_add_home_unique_id"
+            android:textAlignment="center"
+            android:textSize="12dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_add_home__username"
+            style="@style/InputText"
+            android:hint="@string/label_input_username"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/input_padding"
+                android:paddingEnd="@dimen/input_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:id="@+id/fragment_add_home_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/PrimaryButton"
+            android:text="@string/button_text_confirm"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center|top"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

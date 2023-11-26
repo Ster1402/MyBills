@@ -28,6 +28,16 @@
         <item name="android:textColor">@color/royal_blue</item>
         <item name="android:textSize">@dimen/font_larger</item>
     </style>
+    <!-- Connexion / Register -->
+    <style name="BottomSheetTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_huge</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+    </style>
 
     <style name="FancyText">
         <item name="android:layout_width">wrap_content</item>

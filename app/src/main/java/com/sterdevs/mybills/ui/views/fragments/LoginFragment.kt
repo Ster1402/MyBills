@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
@@ -17,6 +18,7 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +28,10 @@ class LoginFragment : Fragment() {
         // Go to register
         binding.fragmentLoginBtnRegister.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        // Go to Home
+        binding.button.setOnClickListener {
+            it.findNavController().navigate(R.id.action_loginFragment_to_HomeFragment)
         }
 
         return binding.root

@@ -13,7 +13,11 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_HomeFragment"
+            app:destination="@id/mainActivity" />
     </fragment>
+
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.sterdevs.mybills.ui.views.fragments.RegisterFragment"
@@ -23,4 +27,11 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.sterdevs.mybills.ui.views.activities.MainActivity"
+        android:label="fragment_home"
+        tools:layout="@layout/activity_main" >
+
+    </activity>
 </navigation>

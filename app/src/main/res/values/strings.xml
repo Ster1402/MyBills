@@ -3,9 +3,16 @@
     <string name="title_text_login">Connexion</string>
     <string name="button_text_confirm">Confirm</string>
     <string name="title_text_register">Register</string>
+    <string name="title_text_add_home">Join a Home</string>
+    <string name="title_text_home">Home</string>
+    <string name="title_text_add_home_unique_id">Enter the home unique ID</string>
+    <string name="title_text_wallet_edit">Edit wallet</string>
     <string name="label_input_phone_number">Phone Number</string>
     <string name="label_input_username">Username</string>
     <string name="label_input_password">Password</string>
+    <string name="label_input_home_id">Enter the Home Id</string>
+    <string name="label_input_choose_wallet">Choose your wallet</string>
+    <string name="label_input_Amount">Amount :  $ %1$s</string>
     <string name="question_message_login">You already have an account ?</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -26,4 +33,16 @@
     <string name="button_text_login">Login</string>
     <string name="label_input_password_confirmation">Confirm Password</string>
     <string name="country_code_cameroon">+237</string>
+    <string name="home">My Home\'s</string>
+    <string name="user">User: \@Jordy</string>
+    <string name="home_name">Big Ben City</string>
+    <string name="home_name_ref">\@big_ben_city</string>
+    <string name="home_name_location">Douala, Pk19 entrée Madi </string>
+    <!---->
+    <string-array name="spinner_options">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
 </resources>
