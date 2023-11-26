@@ -3,6 +3,7 @@
 
     <!-- font sizes -->
     <dimen name="font_larger">30sp</dimen>
+    <dimen name="font_xlarge">24sp</dimen>
     <dimen name="font_large">18sp</dimen>
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_small">14sp</dimen>
@@ -13,6 +14,13 @@
     <dimen name="spacing_normal">12dp</dimen>
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_tiny">4dp</dimen>
+
+    <!-- typical padding -->
+    <dimen name="padding_extra_small">5dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_large">15dp</dimen>
+    <dimen name="padding_extra_large">25dp</dimen>
 
     <!-- typical sizes of views -->
     <dimen name="button_height_tall">60dp</dimen>
@@ -29,12 +37,16 @@
     <!-- Inputs -->
     <dimen name="input_height">68dp</dimen>
     <dimen name="input_width">270dp</dimen>
-
     <dimen name="input_layout_box_corner_radius">30dp</dimen>
-
     <dimen name="input_padding">20dp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Card bill's -->
+    <dimen name="card_bill_collapse_height">300dp</dimen>
+
+    <dimen name="carousel_height">300dp</dimen>
 
 </resources>

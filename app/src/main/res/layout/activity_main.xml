@@ -7,12 +7,21 @@
     android:background="@color/white"
     tools:context=".features.home.ui.views.activities.MainActivity">
 
-    <include
-        layout="@layout/fragment_register"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_tiny"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_bills_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/view_item_bills" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

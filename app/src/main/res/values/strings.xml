@@ -26,4 +26,14 @@
     <string name="button_text_login">Login</string>
     <string name="label_input_password_confirmation">Confirm Password</string>
     <string name="country_code_cameroon">+237</string>
+    <string name="label_total_cost">Total :</string>
+    <string name="price">1.000 XFA</string>
+    <string name="title_bills_type_water">Water\'s Bill</string>
+    <string name="title_bills_type_electricity">Electricity\'s Bill</string>
+    <string name="title_bills_type_rent">Rent</string>
+    <string name="date_creation">Issue on : %1s</string>
+    <string name="label_date_creation">Issue on :</string>
+    <string name="label_deadline">Please pay before :</string>
+    <string name="sample_date_deadline">December 17, 2023</string>
+    <string name="sample_issued_date">November 15th, 2023</string>
 </resources>
