@@ -50,6 +50,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/fragment_login_divider_solid"
             app:layout_constraintStart_toStartOf="@+id/fragment_login_divider_solid"
             app:layout_constraintTop_toBottomOf="@+id/fragment_login_divider_solid">
@@ -71,6 +72,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_login_username"
             app:layout_constraintStart_toStartOf="@id/fragment_login_username"
             app:layout_constraintTop_toBottomOf="@id/fragment_login_username"

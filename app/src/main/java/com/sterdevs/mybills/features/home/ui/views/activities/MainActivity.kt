@@ -2,14 +2,10 @@ package com.sterdevs.mybills.features.home.ui.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.carousel.CarouselLayoutManager
-import com.google.android.material.carousel.HeroCarouselStrategy
-import com.sterdevs.mybills.commons.core.models.enums.BillsStatus
-import com.sterdevs.mybills.commons.core.models.enums.BillsTags
+import com.sterdevs.mybills.core.domain.models.enums.BillsTags
 import com.sterdevs.mybills.databinding.ActivityMainBinding
-import com.sterdevs.mybills.features.bills.core.models.Bill
+import com.sterdevs.mybills.features.bills.domain.models.Bill
 import com.sterdevs.mybills.features.bills.ui.adapters.BillsListAdapters
-import java.time.Instant
 import java.time.Month
 
 class MainActivity : AppCompatActivity() {

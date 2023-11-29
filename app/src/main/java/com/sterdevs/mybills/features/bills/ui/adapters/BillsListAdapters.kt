@@ -1,7 +1,6 @@
 package com.sterdevs.mybills.features.bills.ui.adapters
 
 import android.text.format.DateFormat
-import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.divider.MaterialDivider
 import com.sterdevs.mybills.R
-import com.sterdevs.mybills.commons.core.models.enums.BillsTags
-import com.sterdevs.mybills.commons.ui.adapters.CarouselImagesAdapter
-import com.sterdevs.mybills.features.bills.core.models.Bill
-import java.util.Date
+import com.sterdevs.mybills.core.domain.models.enums.BillsTags
+import com.sterdevs.mybills.core.ui.adapters.CarouselImagesAdapter
+import com.sterdevs.mybills.features.bills.domain.models.Bill
 
 class BillsListAdapters(val bills: List<Bill>) :
     RecyclerView.Adapter<BillsListAdapters.BillViewHolder>() {

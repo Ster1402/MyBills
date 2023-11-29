@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.LoginViewModel

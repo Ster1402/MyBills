@@ -49,6 +49,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/fragment_register_divider_solid"
             app:layout_constraintStart_toStartOf="@+id/fragment_register_divider_solid"
             app:layout_constraintTop_toBottomOf="@+id/fragment_register_divider_solid">
@@ -70,6 +71,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_register_username"
             app:layout_constraintStart_toStartOf="@id/fragment_register_username"
             app:layout_constraintTop_toBottomOf="@id/fragment_register_username"
@@ -93,6 +95,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_register_phone_number"
             app:layout_constraintStart_toStartOf="@id/fragment_register_phone_number"
             app:layout_constraintTop_toBottomOf="@id/fragment_register_phone_number"
@@ -109,7 +112,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fragment_register_password_confirmation"
+            android:id="@+id/fragment_register_repeated_password"
             style="@style/InputText"
             android:layout_marginTop="@dimen/spacing_normal"
             android:hint="@string/label_input_password_confirmation"
@@ -117,6 +120,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_register_password"
             app:layout_constraintStart_toStartOf="@id/fragment_register_password"
             app:layout_constraintTop_toBottomOf="@id/fragment_register_password"
@@ -138,7 +142,7 @@
             android:importantForAccessibility="no"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_register_password_confirmation"
+            app:layout_constraintTop_toBottomOf="@id/fragment_register_repeated_password"
             tools:layout_editor_absoluteY="291dp" />
 
         <Button
