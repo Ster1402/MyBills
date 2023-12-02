@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_small"
+    android:clickable="true"
+    app:cardBackgroundColor="@color/white"
+    app:strokeColor="@color/royal_blue">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/padding_small"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingEnd="@dimen/padding_small"
+        android:paddingBottom="@dimen/spacing_normal">
+
+        <TextView
+            android:id="@+id/view_item_bill_txt_delivered_date2"
+            style="@style/InfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_date_creation"
+            android:textColor="@color/light_blue"
+            app:layout_constraintBottom_toTopOf="@+id/view_item_bill_txt_delivered_date"
+            app:layout_constraintStart_toStartOf="@+id/view_item_bill_txt_delivered_date" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/materialDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:dividerInsetEnd="8dp"
+            app:dividerInsetStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_txt_deadline_date" />
+
+        <TextView
+            android:id="@+id/view_item_bill_txt_price"
+            style="@style/CardPriceTextUnpaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@string/price"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_txt_type" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_item_bill_recyclerview_carousel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/carousel_height"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:importantForAccessibility="no"
+            android:orientation="horizontal"
+            app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/view_item_carousel" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/view_item_bills_carousel_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            app:dividerInsetEnd="16dp"
+            app:dividerInsetStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_recyclerview_carousel" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/ContentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_total_cost"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintStart_toStartOf="@+id/view_item_bill_txt_type"
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_price" />
+
+        <ImageView
+            android:id="@+id/view_item_bill_icon_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:contentDescription="@string/title_bills_type_water"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintStart_toEndOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintVertical_bias="0.38"
+            app:srcCompat="@drawable/water" />
+
+        <TextView
+            android:id="@+id/view_item_bill_txt_type"
+            style="@style/CardTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/title_bills_type_water"
+            app:layout_constraintStart_toStartOf="@+id/view_item_bills_carousel_divider"
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bills_carousel_divider" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/materialDivider2"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_type"
+            app:layout_constraintStart_toEndOf="@+id/view_item_bill_txt_type"
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_type"
+            app:layout_constraintVertical_bias="0.433" />
+
+        <TextView
+            android:id="@+id/view_item_bill_txt_delivered_date"
+            style="@style/InfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:text="@string/date_creation"
+            android:textColor="@color/light_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/materialDivider2"
+            app:layout_constraintStart_toEndOf="@+id/materialDivider2"
+            app:layout_constraintTop_toTopOf="@+id/materialDivider2"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/sample_issued_date" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/ContentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="@string/label_deadline"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_txt_price" />
+
+        <TextView
+            android:id="@+id/view_item_bill_txt_deadline_date"
+            style="@style/CardDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:text="@string/sample_date_deadline"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font_large"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_deadline_date"
+            app:layout_constraintStart_toEndOf="@+id/view_item_bill_txt_deadline_date"
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_deadline_date"
+            app:srcCompat="@drawable/warning_alarm" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:backgroundTint="@color/green"
+            android:text="Pay now"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:text="Show more"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -27,9 +27,10 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+
+    <string name="error_invalid_username">Not a valid username</string>
+    <string name="error_invalid_password">Password must be >8 characters</string>
+    <string name="error_login_failed">"Login failed"</string>
 
     <string name="citation_message">Stressless Bill\'s</string>
     <string name="quote_left"><![CDATA[<<]]></string>
@@ -53,4 +54,14 @@
         <item>Option 3</item>
     </string-array>
 
+    <string name="label_total_cost">Total :</string>
+    <string name="price">1.000 XFA</string>
+    <string name="title_bills_type_water">Water\'s Bill</string>
+    <string name="title_bills_type_electricity">Electricity\'s Bill</string>
+    <string name="title_bills_type_rent">Rent</string>
+    <string name="date_creation">Issue on : %1s</string>
+    <string name="label_date_creation">Issue on :</string>
+    <string name="label_deadline">Please pay before :</string>
+    <string name="sample_date_deadline">December 17, 2023</string>
+    <string name="sample_issued_date">November 15th, 2023</string>
 </resources>

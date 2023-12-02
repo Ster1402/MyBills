@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.views.fragments.LoginFragment">
+    tools:context=".features.authentication.ui.views.fragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/fragment_login_divider_solid"
             app:layout_constraintStart_toStartOf="@+id/fragment_login_divider_solid"
             app:layout_constraintTop_toBottomOf="@+id/fragment_login_divider_solid">
@@ -71,6 +72,7 @@
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_login_username"
             app:layout_constraintStart_toStartOf="@id/fragment_login_username"
             app:layout_constraintTop_toBottomOf="@id/fragment_login_username"
@@ -95,7 +97,7 @@
             app:layout_constraintTop_toBottomOf="@id/fragment_login_password" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/fragment_login_btn_login"
             style="@style/PrimaryButton"
             android:text="@string/button_text_confirm"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +114,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button">
+            app:layout_constraintTop_toBottomOf="@+id/fragment_login_btn_login">
 
             <TextView
                 android:id="@+id/fragment_login_message_login"
