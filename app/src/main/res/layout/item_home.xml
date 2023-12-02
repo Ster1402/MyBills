@@ -12,6 +12,18 @@
         android:background="@drawable/background_recycle_view">
 
         <TextView
+            android:id="@+id/number_notification"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="-35dp"
+            android:background="@drawable/background_circle"
+            android:layout_gravity="right"
+            />
+
+        <TextView
             android:id="@+id/item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +60,7 @@
                 android:paddingStart="10dp"
                 android:text="@string/home_name_ref"
                 android:textSize="18sp"
+                android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_semibold" />
 
@@ -73,6 +86,7 @@
                 android:paddingStart="10dp"
                 android:text="@string/home_name_location"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_regular" />
 

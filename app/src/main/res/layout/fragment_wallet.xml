@@ -1,17 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
-    tools:context=".ui.views.fragments.WalletFragment">
+    tools:context=".ui.views.activities.HomeActivity">
 
-    <TextView
-        android:id="@+id/fragment_wallet"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:gravity="center"
-        android:text="Wallet Fragment"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragment_wallet_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/title_text_wallet"/>
+
+        <TextView
+            android:id="@+id/fragment_home_title_"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/background_title"
+            android:text="@string/wallet"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+        <TextView
+            android:id="@+id/fragment_home_name_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/user"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="230dp"
+            android:background="@color/gray" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/label_recycle_view_payment_method"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_id"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="280dp"
+            tools:listitem="@layout/item_wallet" />
+
+        <TextView
+            android:id="@+id/buttom_add_new_payment"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/background_title"
+            android:text="@string/button_add_new_payment"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+    </FrameLayout>
 
 </FrameLayout>

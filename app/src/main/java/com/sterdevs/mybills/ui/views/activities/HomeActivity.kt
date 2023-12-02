@@ -8,14 +8,17 @@ import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
 import com.sterdevs.mybills.databinding.ActivityHomeBinding
+import com.sterdevs.mybills.databinding.ActivityMainBinding
 import com.sterdevs.mybills.databinding.ItemHomeBinding
 import com.sterdevs.mybills.ui.views.fragments.AddHomeFragment
+import android.content.Intent
 
 class HomeActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityHomeBinding
     private lateinit var recyclerView: RecyclerView
+    private lateinit var navigationBottom: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,13 +29,15 @@ class HomeActivity : AppCompatActivity() {
 
         setupDrawerLayout()
         val add_home_view = binding.addHome
-        add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment())}
+        add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment())
+
+
+        }
 
     }
     private fun setupDrawerLayout() {
         binding.fragmentHomeLogo.setOnClickListener { openDrawer()}
     }
-
     private fun openDrawer() {
         binding.drawerLayout.openDrawer(GravityCompat.START)
     }
@@ -46,7 +51,11 @@ class HomeActivity : AppCompatActivity() {
         // Données pour le RecyclerView
         val items = mutableListOf<HomeItem>()
         items.add(HomeItem("Big Ben City", " @big-ben-city", "Douala, Pk19 entrée Madi"))
-        items.add(HomeItem("Chiacago City", "@chicago-city", " Douala, Pk17 entrée gendarmerie"))
+        items.add(HomeItem("Chicago City", "@chicago-city", " Douala, Pk17 entrée gendarmerie"))
+        items.add(HomeItem("Big Ben City", " @big-ben-city", "Douala, Pk19 entrée Madi"))
+        items.add(HomeItem("Chicago City", "@chicago-city", " Douala, Pk17 entrée gendarmerie"))
+        items.add(HomeItem("Big Ben City", " @big-ben-city", "Douala, Pk19 entrée Madi"))
+        items.add(HomeItem("Chicago City", "@chicago-city", " Douala, Pk17 entrée gendarmerie"))
 
         return items
     }
@@ -67,6 +76,9 @@ class HomeActivity : AppCompatActivity() {
             holder.binding.itemTitle.text = item.title
             holder.binding.homeNameRef.text = item.business
             holder.binding.locationName.text = item.location
+            holder.itemView.setOnClickListener {
+                launchHomeDetails(item)
+            }
         }
         override fun getItemCount(): Int {
             return items.size
@@ -78,7 +90,13 @@ class HomeActivity : AppCompatActivity() {
     private fun showBottomSheet(fragment: BottomSheetDialogFragment) {
         fragment.show(supportFragmentManager, fragment.tag)
     }
-
+    private fun launchHomeDetails(homeItem: HomeItem) {
+        val intent = Intent(this, HomeDetailsActivity::class.java)
+        intent.putExtra("title", homeItem.title)
+        intent.putExtra("business", homeItem.business)
+        intent.putExtra("location", homeItem.location)
+        startActivity(intent)
+    }
 
 
 }

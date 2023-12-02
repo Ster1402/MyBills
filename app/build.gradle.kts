@@ -10,7 +10,7 @@ plugins {
 android {
     namespace = "com.sterdevs.mybills"
     compileSdk = 34
-
+/*
     signingConfigs {
         getByName("debug") {
             storePassword = rootProject.extra["keyStorePassword"] as String
@@ -20,7 +20,7 @@ android {
         }
         create("release") {
         }
-    }
+    }*/
 
     defaultConfig {
         applicationId = "com.sterdevs.mybills"
