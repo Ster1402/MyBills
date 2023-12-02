@@ -26,14 +26,11 @@ class RegisterFragment : Fragment() {
             it.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
+        // Use the view model
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        
+
         return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
-        // TODO: Use the ViewModel
-    }
-
 
 }
