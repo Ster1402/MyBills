@@ -1,7 +1,7 @@
 package com.sterdevs.mybills.features.authentication.domain.use_cases.validation
 
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.ValidationResult
-import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors.PhoneNumberValidationError
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors.PhoneNumberValidationError
 
 class ValidatePhoneNumber {
     fun execute(phoneNumber: String): ValidationResult {

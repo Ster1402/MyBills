@@ -30,10 +30,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.divider.MaterialDivider
             android:id="@+id/fragment_login_divider_solid"
-            style="@style/DividerSolidCard"
-            android:layout_width="@dimen/divider_width_large"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/spacing_normal"
             android:layout_marginEnd="16dp"
@@ -51,6 +52,7 @@
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
             app:errorEnabled="true"
+            app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/fragment_login_divider_solid"
             app:layout_constraintStart_toStartOf="@+id/fragment_login_divider_solid"
             app:layout_constraintTop_toBottomOf="@+id/fragment_login_divider_solid">
@@ -73,6 +75,7 @@
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
             app:errorEnabled="true"
+            app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="@id/fragment_login_username"
             app:layout_constraintStart_toStartOf="@id/fragment_login_username"
             app:layout_constraintTop_toBottomOf="@id/fragment_login_username"

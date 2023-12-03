@@ -37,4 +37,5 @@
     <string name="label_deadline">Please pay before :</string>
     <string name="sample_date_deadline">December 17, 2023</string>
     <string name="sample_issued_date">November 15th, 2023</string>
+    <string name="label_input_name">Name and Surname</string>
 </resources>

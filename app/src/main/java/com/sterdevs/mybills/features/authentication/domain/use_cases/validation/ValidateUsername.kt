@@ -1,7 +1,7 @@
 package com.sterdevs.mybills.features.authentication.domain.use_cases.validation
 
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.ValidationResult
-import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors.UsernameValidationError
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors.UsernameValidationError
 import com.sterdevs.mybills.features.authentication.domain.utils.MIN_USERNAME_LENGTH
 
 class ValidateUsername {

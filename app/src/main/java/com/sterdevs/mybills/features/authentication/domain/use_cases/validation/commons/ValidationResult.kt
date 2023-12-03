@@ -1,6 +1,6 @@
 package com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons
 
-import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors.ValidationError
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors.ValidationError
 
 data class ValidationResult(
     val isSuccessful: Boolean = true,
