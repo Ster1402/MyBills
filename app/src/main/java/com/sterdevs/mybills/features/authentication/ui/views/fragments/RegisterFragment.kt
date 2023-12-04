@@ -102,10 +102,10 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
 
     override fun addViewsEventsListeners() {
         // Set up listeners for user interactions
-        submitRegisterButton.setOnClickListener {
+        goToLoginButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
-        goToLoginButton.setOnClickListener {
+        submitRegisterButton.setOnClickListener {
             viewModel.onEvent(RegistrationFormEvent.Submit)
         }
         nameInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
