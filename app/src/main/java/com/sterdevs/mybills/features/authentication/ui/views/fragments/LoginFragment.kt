@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.sterdevs.mybills.R
@@ -18,6 +21,8 @@ import com.sterdevs.mybills.core.domain.models.validations.ValidationEventListen
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
 import com.sterdevs.mybills.features.authentication.ui.events.LoginFormEvent
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.LoginViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(), ValidationEventListener, ScreenUtils {
 
@@ -48,7 +53,7 @@ class LoginFragment : Fragment(), ValidationEventListener, ScreenUtils {
         addViewsEventsListeners()
 
         // Add live data observers
-        addLiveDataObservers()
+        subscribeToObservables()
 
         return binding.root
     }
@@ -89,29 +94,41 @@ class LoginFragment : Fragment(), ValidationEventListener, ScreenUtils {
         }
     }
 
-    override fun addLiveDataObservers() {
-        // Observe state changes
-        viewModel.state.observe(viewLifecycleOwner) { state ->
-            usernameLayout.error = state.usernameError
-            passwordLayout.error = state.passwordError
-        }
+    override fun subscribeToObservables() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Observe state changes
+                viewModel.state.collect { state ->
+                    usernameLayout.error = state.usernameError
+                    passwordLayout.error = state.passwordError
+                }
+            }
 
-        // Observe validation events
-        viewModel.validationEvent.observe(viewLifecycleOwner) { event ->
-            handleValidationEvent(event)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Observe validation events
+                viewModel.validationEvent.collectLatest { event ->
+                    handleValidationEvent(event)
+                }
+            }
         }
     }
 
-    override fun handleValidationEvent(event: ValidationEvent) {
+    override fun handleValidationEvent(event: ValidationEvent?) {
         // TODO: If the validation is successful then login the user
+        if (event !is ValidationEvent) return
 
-        when(event) {
+        when (event) {
             is ValidationEvent.Success -> {
                 Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
             }
 
             is ValidationEvent.Failed -> {
                 Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+            }
+
+            is ValidationEvent.Pending -> {
+                // TODO: Show loading screen
+                Toast.makeText(context, "Pending", Toast.LENGTH_SHORT).show()
             }
         }
     }

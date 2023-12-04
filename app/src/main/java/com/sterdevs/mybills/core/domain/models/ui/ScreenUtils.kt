@@ -4,5 +4,5 @@ interface ScreenUtils {
     fun getViews()
     fun initializeDefaultValues()
     fun addViewsEventsListeners()
-    fun addLiveDataObservers() {}
+    fun subscribeToObservables() {}
 }
