@@ -1,90 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:strokeWidth="0dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="@dimen/spacing_tiny">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/item_wallet_operator_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:background="@color/red"
+            android:src="@drawable/baseline_business_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_business_24"
-                android:background="@color/red"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"/>
+        <TextView
+            android:id="@+id/operator_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/label_payment_method"
+            android:textSize="@dimen/font_large"
+            app:layout_constraintLeft_toRightOf="@id/item_wallet_operator_icon"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/operator_name"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="148dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="center"
-                android:text="@string/label_payment_method"
-                android:textSize="12sp" />
-
-            <ImageView
-                android:id="@+id/edit_operator"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-
-                android:src="@drawable/baseline_edit_note_24" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/edit_operator_button_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:clickable="true"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_edit_note_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/user_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="56dp"
-            android:text="@string/user_name"
+            android:layout_marginTop="@dimen/spacing_small"
             android:fontFamily="@font/poppins_medium"
-            android:textSize="12sp"/>
+            android:text="@string/user_name"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintLeft_toLeftOf="@id/operator_name"
+            app:layout_constraintTop_toBottomOf="@id/operator_name" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/user_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/label_number"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintLeft_toLeftOf="@id/user_name"
+            app:layout_constraintTop_toBottomOf="@id/user_name" />
 
-            <TextView
-                android:id="@+id/user_number"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="57dp"
-                android:layout_marginEnd="190dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="center"
-                android:text="@string/label_number"
-                android:textSize="12sp" />
+        <ImageView
+            android:id="@+id/delete_operator_button_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:clickable="true"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@id/user_number"
+            app:layout_constraintRight_toRightOf="@id/edit_operator_button_icon" />
 
-            <ImageView
-                android:id="@+id/delete_operator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_gravity="end"
-                android:src="@drawable/baseline_delete_24" />
-        </LinearLayout>
-
-
-        <View
+        <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:background="@color/light_gray" />
-    </LinearLayout>
+            android:layout_marginTop="@dimen/spacing_small"
+            android:paddingHorizontal="@dimen/spacing_tiny"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/delete_operator_button_icon" />
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

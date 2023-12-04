@@ -9,8 +9,8 @@ data class Home(
 
     val name : String,
     val slug : String,
+    val location: String,
     val description: String,
-
     // Relationships
     val caretakerId : Int
 )

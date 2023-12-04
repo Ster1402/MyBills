@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.views.activities.MainActivity">
+    tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
@@ -28,11 +28,11 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_marginTop="10dp"
                 android:layout_width="40dp"
                 android:layout_height="47dp"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="right"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/logo" />
 
         </FrameLayout>

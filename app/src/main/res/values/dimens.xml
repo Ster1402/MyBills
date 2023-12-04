@@ -37,6 +37,7 @@
     <!-- Inputs -->
     <dimen name="input_height">68dp</dimen>
     <dimen name="input_width">270dp</dimen>
+    <dimen name="input_width_for_bottom">150dp</dimen>
     <dimen name="input_layout_box_corner_radius">30dp</dimen>
     <dimen name="input_padding">20dp</dimen>
 

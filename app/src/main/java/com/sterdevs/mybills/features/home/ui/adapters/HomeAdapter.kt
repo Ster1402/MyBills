@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.data.adapter
+package com.sterdevs.mybills.features.home.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

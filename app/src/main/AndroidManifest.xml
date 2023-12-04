@@ -13,14 +13,14 @@
         android:theme="@style/Theme.MyBills"
         tools:targetApi="31">
         <activity
-            android:name=".ui.views.activities.HomeDetailsActivity"
+            android:name=".features.home.ui.views.activities.HomeDetailsActivity"
             android:exported="false"
-            android:parentActivityName=".ui.views.activities.HomeActivity"/>
+            android:parentActivityName=".features.home.ui.views.activities.HomeActivity"/>
         <activity
-            android:name=".ui.views.activities.HomeActivity"
+            android:name=".features.home.ui.views.activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.views.activities.AuthenticationActivity"
+            android:name=".features.authentication.ui.views.activities.AuthenticationActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.SplashScreen">
             <intent-filter>
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.views.activities.MainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

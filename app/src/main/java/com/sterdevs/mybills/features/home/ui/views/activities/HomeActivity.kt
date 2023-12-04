@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.ui.views.activities
+package com.sterdevs.mybills.features.home.ui.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sterdevs.mybills.databinding.ActivityHomeBinding
 import com.sterdevs.mybills.databinding.ActivityMainBinding
 import com.sterdevs.mybills.databinding.ItemHomeBinding
-import com.sterdevs.mybills.ui.views.fragments.AddHomeFragment
+import com.sterdevs.mybills.features.home.ui.views.fragments.AddHomeFragment
 import android.content.Intent
 
 class HomeActivity : AppCompatActivity() {
@@ -29,10 +29,7 @@ class HomeActivity : AppCompatActivity() {
 
         setupDrawerLayout()
         val add_home_view = binding.addHome
-        add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment())
-
-
-        }
+        add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment()) }
 
     }
     private fun setupDrawerLayout() {

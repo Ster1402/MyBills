@@ -11,10 +11,10 @@ import com.sterdevs.mybills.features.authentication.ui.events.RegistrationFormEv
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.states.RegistrationFormState
 
 class RegisterViewModel(
-    private val validateUsername: ValidateUsername,
-    private val validatePhoneNumber: ValidatePhoneNumber,
-    private val validatePassword: ValidatePassword,
-    private val validateRepeatedPassword: ValidateRepeatedPassword
+    private val validateUsername: ValidateUsername = ValidateUsername(),
+    private val validatePhoneNumber: ValidatePhoneNumber = ValidatePhoneNumber(),
+    private val validatePassword: ValidatePassword = ValidatePassword(),
+    private val validateRepeatedPassword: ValidateRepeatedPassword = ValidateRepeatedPassword()
 ) : ViewModel() {
 
     private val _state = MutableLiveData(

@@ -7,12 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.databinding.FragmentLoginBinding
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.LoginViewModel
-import com.sterdevs.mybills.features.home.ui.views.activities.MainActivity
+import com.sterdevs.mybills.MainActivity
 
 class LoginFragment : Fragment() {
 
@@ -24,7 +23,10 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         // Go to register
         binding.fragmentLoginBtnRegister.setOnClickListener {
@@ -38,12 +40,6 @@ class LoginFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-        // TODO: Use the ViewModel
     }
 
 }

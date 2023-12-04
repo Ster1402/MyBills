@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
-    tools:context=".features.home.ui.views.activities.HomeActivity">
+    tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -24,14 +24,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="160dp"
                 android:text="@string/title_text_home"/>
-
-            <ImageView
-                android:id="@+id/fragment_home_logo"
-                android:layout_width="40dp"
-                android:layout_height="47dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/logo"
-                android:layout_marginLeft="100dp"/>
         </LinearLayout>
         <TextView
             android:id="@+id/fragment_home_title_"
@@ -60,7 +52,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_id"
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="350dp"
             tools:listitem="@layout/item_home"
             android:layout_marginTop="240dp" />
 
@@ -69,16 +61,10 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="end|bottom"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="90dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/baseline_add_circle_24"/>
     </FrameLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu" />
-</androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>
