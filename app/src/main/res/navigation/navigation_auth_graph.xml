@@ -14,9 +14,7 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
             app:enterAnim="@anim/anim_auth_fragment_transition_enter"
-            app:exitAnim="@anim/anim_auth_fragment_transition_exit"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            app:exitAnim="@anim/anim_auth_fragment_transition_exit" />
         <action
             android:id="@+id/action_loginFragment_to_navigation_app_graph"
             app:destination="@id/navigation_app_graph"

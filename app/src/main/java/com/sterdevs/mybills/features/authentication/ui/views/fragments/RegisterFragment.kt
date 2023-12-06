@@ -71,9 +71,9 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
                         .setNeutralButton(resources.getString(R.string.cancel)) { _, _ ->
                             // Respond to neutral button press
                         }
-                        .setPositiveButton(resources.getString(R.string.try_again)) { _, _ ->
-                            // Respond to positive button press
-                            viewModel.onEvent(RegistrationFormEvent.Submit)
+                        .setPositiveButton(resources.getString(R.string.button_text_login)) { _, _ ->
+                            // Go to login
+                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         }
                         .show()
                 }
@@ -115,7 +115,7 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
     override fun addViewsEventsListeners() {
         // Set up listeners for user interactions
         goToLoginButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
         submitRegisterButton.setOnClickListener {
             viewModel.onEvent(RegistrationFormEvent.Submit)

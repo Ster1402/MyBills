@@ -2,7 +2,9 @@ package com.sterdevs.mybills.features.authentication.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sterdevs.mybills.core.domain.models.User
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
+import com.sterdevs.mybills.core.ui.state.AppGlobalState
 import com.sterdevs.mybills.core.ui.utils.UiEventListener
 import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
@@ -18,8 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
+    val authenticationUseCases: AuthenticationUseCases,
     fieldValidationUseCases: FieldValidationUseCases,
-    authenticationUseCases: AuthenticationUseCases
 ) : ViewModel(), UiEventListener<LoginFormEvent> {
     private val validateUsername: ValidateUsername = fieldValidationUseCases.validateUsername
     private val validatePassword: ValidatePassword = fieldValidationUseCases.validatePassword
@@ -31,7 +33,7 @@ class LoginViewModel @Inject constructor(
     val validationEvent = _validationEvent.asStateFlow()
 
     override fun onEvent(event: LoginFormEvent) {
-        when(event) {
+        when (event) {
             is LoginFormEvent.UsernameChanged -> {
                 _state.value = _state.value.copy(
                     username = event.username,
@@ -74,22 +76,39 @@ class LoginViewModel @Inject constructor(
                 usernameError = validateUsername.execute(_state.value.username).error?.errorMessage,
                 passwordError = validateUsername.execute(_state.value.password).error?.errorMessage
             )
+
+            return
         }
 
-        // TODO: Save user to the database and update the global state of user
-//        val user : User = User()
-
-//        AppGlobalState.setUser(user)
 
         // Emit the validation result event for the fragment to observe
         viewModelScope.launch {
-            emitValidationEvent(
-                if (hasError) {
-                    ValidationEvent.Failed
+            // TODO: Save user to the database and update the global state of user
+            // Try to login
+            try {
+                val user = login()
+                if (user == null) {
+                    emitValidationEvent(
+                        ValidationEvent.Failed.setReason("Invalid credentials.")
+                    )
                 } else {
-                    ValidationEvent.Success
+                    AppGlobalState.setUser(user)
+                    emitValidationEvent(
+                        ValidationEvent.Success
+                    )
                 }
-            )
+            } catch(e: Exception) {
+                emitValidationEvent(
+                    ValidationEvent.Failed
+                )
+            }
         }
+    }
+
+    private suspend fun login() : User? {
+        return authenticationUseCases.loginUseCase.execute(
+            username = _state.value.username,
+            password = _state.value.password,
+        )
     }
 }

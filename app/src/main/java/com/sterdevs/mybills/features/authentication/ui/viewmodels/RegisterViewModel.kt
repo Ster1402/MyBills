@@ -6,6 +6,7 @@ import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.domain.models.User
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
 import com.sterdevs.mybills.core.domain.use_cases.GetUserByUsernameUseCase
+import com.sterdevs.mybills.core.ui.state.AppGlobalState
 import com.sterdevs.mybills.core.ui.utils.UiEventListener
 import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
@@ -146,6 +147,7 @@ class RegisterViewModel @Inject constructor(
         if (validateUser(user)) {
             try {
                 authenticationUseCases.registerUseCase.execute(user)
+                saveUserInGlobalState(user)
                 emitValidationEvent(ValidationEvent.Success)
             } catch (e: Exception) {
                 emitValidationEvent(ValidationEvent.Failed)
@@ -165,5 +167,9 @@ class RegisterViewModel @Inject constructor(
         }
 
         return true
+    }
+
+    private fun saveUserInGlobalState(user: User) {
+        AppGlobalState.setUser(user)
     }
 }
