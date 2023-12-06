@@ -1,8 +1,8 @@
-package com.sterdevs.mybills.core.domain.models.viewmodels
+package com.sterdevs.mybills.core.ui.utils
 
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
 
-interface IViewModels<EventType> {
+interface UiEventListener<EventType> {
     fun onEvent(event: EventType)
     fun emitValidationEvent(event: ValidationEvent)
 }

@@ -7,21 +7,16 @@
     android:background="@color/white"
     tools:context=".features.home.ui.views.activities.MainActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/spacing_tiny"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/app_fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_bills_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/view_item_bills" />
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/navigation_app_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

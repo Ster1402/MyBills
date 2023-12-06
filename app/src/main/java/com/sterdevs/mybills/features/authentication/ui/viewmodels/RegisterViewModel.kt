@@ -1,10 +1,14 @@
 package com.sterdevs.mybills.features.authentication.ui.viewmodels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sterdevs.mybills.R
+import com.sterdevs.mybills.core.domain.models.User
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
-import com.sterdevs.mybills.core.domain.models.viewmodels.IViewModels
+import com.sterdevs.mybills.core.domain.use_cases.GetUserByUsernameUseCase
+import com.sterdevs.mybills.core.ui.utils.UiEventListener
+import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateName
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidatePassword
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidatePhoneNumber
@@ -12,17 +16,26 @@ import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateUsername
 import com.sterdevs.mybills.features.authentication.ui.events.RegistrationFormEvent
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.states.RegistrationFormState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RegisterViewModel(
-    private val validateName: ValidateName = ValidateName(),
-    private val validateUsername: ValidateUsername = ValidateUsername(),
-    private val validatePhoneNumber: ValidatePhoneNumber = ValidatePhoneNumber(),
-    private val validatePassword: ValidatePassword = ValidatePassword(),
-    private val validateRepeatedPassword: ValidateRepeatedPassword = ValidateRepeatedPassword()
-) : ViewModel(), IViewModels<RegistrationFormEvent> {
+@HiltViewModel
+class RegisterViewModel @Inject constructor(
+    val authenticationUseCases: AuthenticationUseCases,
+    val getUserUseCase: GetUserByUsernameUseCase,
+    fieldValidationUseCases: FieldValidationUseCases,
+) : ViewModel(), UiEventListener<RegistrationFormEvent> {
+
+    private val validateName: ValidateName = fieldValidationUseCases.validateName
+    private val validateUsername: ValidateUsername = fieldValidationUseCases.validateUsername
+    private val validatePhoneNumber: ValidatePhoneNumber =
+        fieldValidationUseCases.validatePhoneNumber
+    private val validatePassword: ValidatePassword = fieldValidationUseCases.validatePassword
+    private val validateRepeatedPassword: ValidateRepeatedPassword =
+        fieldValidationUseCases.validateRepeatedPassword
 
     private val _state = MutableStateFlow(RegistrationFormState())
     val state = _state.asStateFlow()
@@ -107,16 +120,50 @@ class RegisterViewModel(
             )
 
             return
-        }
 
-        viewModelScope.launch {
-            emitValidationEvent(ValidationEvent.Success)
+        } else {
+            // Register User
+            viewModelScope.launch {
+                registerUser()
+            }
         }
-
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
+        _validationEvent.value = ValidationEvent.Pending
         _validationEvent.value = event
     }
 
+    private suspend fun registerUser() {
+        val user = User(
+            username = state.value.username,
+            name = state.value.name,
+            phoneNumber = state.value.phoneNumber,
+            password = state.value.password,
+        )
+
+        // Validate the user before registration
+        if (validateUser(user)) {
+            try {
+                authenticationUseCases.registerUseCase.execute(user)
+                emitValidationEvent(ValidationEvent.Success)
+            } catch (e: Exception) {
+                emitValidationEvent(ValidationEvent.Failed)
+            }
+        }
+    }
+
+    private suspend fun validateUser(user: User): Boolean {
+        // Find out if the user already exists
+        if (getUserUseCase.execute(user.username) != null) {
+            emitValidationEvent(
+                ValidationEvent.Failed
+                    .setReason("Sorry the username already exist with the corresponding value.")
+            )
+
+            return false
+        }
+
+        return true
+    }
 }

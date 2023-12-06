@@ -1,24 +1,28 @@
 package com.sterdevs.mybills.features.authentication.ui.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
-import com.sterdevs.mybills.core.domain.models.viewmodels.IViewModels
+import com.sterdevs.mybills.core.ui.utils.UiEventListener
+import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidatePassword
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateUsername
 import com.sterdevs.mybills.features.authentication.ui.events.LoginFormEvent
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.states.LoginFormState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel(
-    private val validateUsername: ValidateUsername = ValidateUsername(),
-    private val validatePassword: ValidatePassword = ValidatePassword()
-) : ViewModel(), IViewModels<LoginFormEvent> {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    fieldValidationUseCases: FieldValidationUseCases,
+    authenticationUseCases: AuthenticationUseCases
+) : ViewModel(), UiEventListener<LoginFormEvent> {
+    private val validateUsername: ValidateUsername = fieldValidationUseCases.validateUsername
+    private val validatePassword: ValidatePassword = fieldValidationUseCases.validatePassword
 
     private val _state = MutableStateFlow(LoginFormState())
     val state = _state.asStateFlow()
@@ -49,6 +53,7 @@ class LoginViewModel(
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
+        _validationEvent.value = ValidationEvent.Pending
         _validationEvent.value = event
     }
 
@@ -70,6 +75,11 @@ class LoginViewModel(
                 passwordError = validateUsername.execute(_state.value.password).error?.errorMessage
             )
         }
+
+        // TODO: Save user to the database and update the global state of user
+//        val user : User = User()
+
+//        AppGlobalState.setUser(user)
 
         // Emit the validation result event for the fragment to observe
         viewModelScope.launch {

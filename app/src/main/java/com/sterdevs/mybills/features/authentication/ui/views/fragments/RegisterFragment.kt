@@ -1,7 +1,7 @@
 package com.sterdevs.mybills.features.authentication.ui.views.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,25 +9,30 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.sterdevs.mybills.R
-import com.sterdevs.mybills.core.domain.models.ui.ScreenUtils
+import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
 import com.sterdevs.mybills.core.domain.models.validations.ValidationEventListener
 import com.sterdevs.mybills.databinding.FragmentRegisterBinding
 import com.sterdevs.mybills.features.authentication.ui.events.RegistrationFormEvent
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
 
     private lateinit var binding: FragmentRegisterBinding
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel: RegisterViewModel by viewModels()
 
     private lateinit var nameInputLayout: TextInputLayout
     private lateinit var usernameInputLayout: TextInputLayout
@@ -43,9 +48,6 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
     ): View {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
-        // Use the view model
-        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
-
         getViews()
         initializeDefaultValues()
         addViewsEventsListeners()
@@ -56,22 +58,32 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
 
 
     override fun handleValidationEvent(event: ValidationEvent?) {
-        // TODO: If the validation is successful then register the user
-        if (event !is ValidationEvent) return
-
         when (event) {
             is ValidationEvent.Success -> {
-                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_registerFragment_to_navigation_app_graph)
             }
 
             is ValidationEvent.Failed -> {
-                Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+                context?.let {
+                    MaterialAlertDialogBuilder(it)
+                        .setTitle(resources.getString(R.string.title_text_register))
+                        .setMessage(event.reason)
+                        .setNeutralButton(resources.getString(R.string.cancel)) { _, _ ->
+                            // Respond to neutral button press
+                        }
+                        .setPositiveButton(resources.getString(R.string.try_again)) { _, _ ->
+                            // Respond to positive button press
+                            viewModel.onEvent(RegistrationFormEvent.Submit)
+                        }
+                        .show()
+                }
             }
 
             is ValidationEvent.Pending -> {
                 // TODO: Show loading screen
-                Toast.makeText(context, "Pending", Toast.LENGTH_SHORT).show()
             }
+
+            else -> {}
         }
     }
 
@@ -109,13 +121,13 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
             viewModel.onEvent(RegistrationFormEvent.Submit)
         }
         nameInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
-            viewModel.onEvent(RegistrationFormEvent.NameChanged(text.toString()))
+            viewModel.onEvent(RegistrationFormEvent.NameChanged(text.toString().trim()))
         }
         usernameInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
-            viewModel.onEvent(RegistrationFormEvent.UsernameChanged(text.toString()))
+            viewModel.onEvent(RegistrationFormEvent.UsernameChanged(text.toString().trim()))
         }
         phoneNumberInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
-            viewModel.onEvent(RegistrationFormEvent.PhoneNumberChanged(text.toString()))
+            viewModel.onEvent(RegistrationFormEvent.PhoneNumberChanged(text.toString().trim()))
         }
         passwordInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.onEvent(RegistrationFormEvent.PasswordChanged(text.toString()))
@@ -129,21 +141,24 @@ class RegisterFragment : Fragment(), ValidationEventListener, ScreenUtils {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Observe the ViewModel's state
-                viewModel.state.collect { state ->
-                    // Update UI based on state changes
-                    nameInputLayout.error = state.nameError
-                    usernameInputLayout.error = state.usernameError
-                    phoneNumberInputLayout.error = state.phoneNumberError
-                    passwordInputLayout.error = state.passwordError
-                    repeatedPasswordInputLayout.error = state.repeatedPasswordError
-                }
-            }
 
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Observe the validation events
-                viewModel.validationEvent.collectLatest { event ->
-                    handleValidationEvent(event)
+                launch {
+                    // Observe the ViewModel's state
+                    viewModel.state.collect { state ->
+                        // Update UI based on state changes
+                        nameInputLayout.error = state.nameError
+                        usernameInputLayout.error = state.usernameError
+                        phoneNumberInputLayout.error = state.phoneNumberError
+                        passwordInputLayout.error = state.passwordError
+                        repeatedPasswordInputLayout.error = state.repeatedPasswordError
+                    }
+                }
+
+                launch {
+                    // Observe the validation events
+                    viewModel.validationEvent.collectLatest { event ->
+                        handleValidationEvent(event)
+                    }
                 }
             }
         }

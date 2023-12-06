@@ -18,7 +18,8 @@
 
     <string name="error_invalid_username">Not a valid username</string>
     <string name="error_invalid_password">Password must be >8 characters</string>
-    <string name="error_login_failed">"Login failed"</string>
+    <string name="error_login_failed">Login failed</string>
+    <string name="error_register_failed">The user with the corresponding username already exists.</string>
 
     <string name="citation_message">Stressless Bill\'s</string>
     <string name="quote_left"><![CDATA[<<]]></string>
@@ -38,4 +39,13 @@
     <string name="sample_date_deadline">December 17, 2023</string>
     <string name="sample_issued_date">November 15th, 2023</string>
     <string name="label_input_name">Name and Surname</string>
+
+    <string name="decline">Decline</string>
+    <string name="try_again">Try again</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="ok">OK</string>
+
+    <string name="message_confirm_delete">Please confirm that you really want to delete this item.</string>
 </resources>
