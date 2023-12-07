@@ -1,26 +1,40 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyBills" parent="Theme.Material3.Light.NoActionBar">
-
         <item name="colorPrimary">@color/royal_blue</item>
         <item name="colorSecondary">@color/light_blue</item>
         <item name="colorAccent">@color/light_blue</item>
         <item name="colorTertiary">@color/green</item>
-
     </style>
 
     <style name="Theme.MyBills" parent="Base.Theme.MyBills">
         <item name="materialDividerStyle">@style/Widget.App.MaterialDivider</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
+        <item name="colorSurface">@color/royal_blue</item>
+        <item name="colorOnSurface">@color/light_gray</item>
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleIconStyle">@style/MaterialAlertDialog.App.Title.Icon</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.App.Body.Text</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button.Neutral</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button.Negative</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button.Positive</item>
     </style>
 
     <style name="Theme.AppCompat.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/royal_blue</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Base.Theme.MyBills</item>
+        <item name="postSplashScreenTheme">@style/Theme.MyBills</item>
     </style>
 
     <style name="Widget.App.MaterialDivider" parent="Widget.Material3.MaterialDivider">
-        <item name="dividerColor">@color/light_gray</item>
+        <item name="dividerColor">@color/dark_gray</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="height">1dp</item>
     </style>
 
 </resources>

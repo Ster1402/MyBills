@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors
+package com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors
 
 class RepeatedPasswordError(errorMessage: String, description: String) :
     ValidationError(errorMessage, description) {

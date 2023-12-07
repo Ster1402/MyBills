@@ -1,7 +1,7 @@
 package com.sterdevs.mybills.features.authentication.domain.use_cases.validation
 
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.ValidationResult
-import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors.PasswordValidationError
+import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors.PasswordValidationError
 import com.sterdevs.mybills.features.authentication.domain.utils.MIN_PASSWORD_LENGTH
 
 class ValidatePassword {

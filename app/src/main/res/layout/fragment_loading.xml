@@ -16,7 +16,7 @@
             android:id="@+id/fragment_loading_logo_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_huge"
+            android:layout_marginTop="@dimen/spacing_extrahuge"
             android:contentDescription="@string/app_name"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"

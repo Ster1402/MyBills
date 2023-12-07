@@ -5,6 +5,8 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     // Ksp
     id("com.google.devtools.ksp")
+    // Hilt
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -73,11 +75,14 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //Hilt for dependency
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    implementation("com.google.dagger:hilt-android:2.49")
+    kapt("com.google.dagger:hilt-android-compiler:2.49")
+
+//    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.annotation:annotation:1.7.0")
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
+    testImplementation("junit:junit:4.12")
 
     //Room Library
     implementation ("androidx.room:room-runtime:2.6.0")

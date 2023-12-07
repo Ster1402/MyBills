@@ -11,12 +11,12 @@ import com.sterdevs.mybills.databinding.FragmentEditWalletBinding
 
 class AddHomeFragment :  BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentEditWalletBinding
+    private lateinit var binding: FragmentAddHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEditWalletBinding.inflate(inflater, container, false)
+        binding = FragmentAddHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }

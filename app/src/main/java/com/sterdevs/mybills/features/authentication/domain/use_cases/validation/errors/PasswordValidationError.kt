@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.authentication.domain.use_cases.validation.commons.errors
+package com.sterdevs.mybills.features.authentication.domain.use_cases.validation.errors
 
 import com.sterdevs.mybills.features.authentication.domain.utils.MIN_PASSWORD_LENGTH
 

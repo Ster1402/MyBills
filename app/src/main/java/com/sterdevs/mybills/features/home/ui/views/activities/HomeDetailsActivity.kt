@@ -27,9 +27,9 @@ class HomeDetailsActivity : AppCompatActivity() {
         titleTextView.text = title
 
         // Go to Home
-        binding.backToHome.setOnClickListener {
+      /*  binding.backToHome.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeDetailsActivity_to_homeFragment)
-        }
+        }*/
 
     }
 }

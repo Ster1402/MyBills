@@ -13,14 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_remove_24"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center|top"/>
-
-
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center|top"
+            android:layout_marginBottom="10dp"
+            app:dividerColor="@color/royal_blue"/>
         <TextView
             android:id="@+id/fragment_add_home_title"
             android:layout_width="wrap_content"
@@ -41,7 +39,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/fragment_add_home__username"
             style="@style/InputText"
-            android:hint="@string/label_input_username"
+            android:hint="@string/label_input_home_id"
             app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
             app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
@@ -54,12 +52,11 @@
                 android:paddingEnd="@dimen/input_padding" />
 
         </com.google.android.material.textfield.TextInputLayout>
-        <View
-            android:id="@+id/fragment_add_home_line"
+        <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_marginTop="20dp"
-            android:background="@color/gray" />
+            android:layout_gravity="center|top" />
 
         <Button
             android:id="@+id/button"
