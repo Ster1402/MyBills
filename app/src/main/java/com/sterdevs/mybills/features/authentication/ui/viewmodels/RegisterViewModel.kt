@@ -2,11 +2,10 @@ package com.sterdevs.mybills.features.authentication.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.domain.models.User
-import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
+import com.sterdevs.mybills.core.ui.events.validations.ValidationEvent
 import com.sterdevs.mybills.core.domain.use_cases.GetUserByUsernameUseCase
-import com.sterdevs.mybills.core.ui.state.AppGlobalState
+import com.sterdevs.mybills.core.ui.states.AppGlobalState
 import com.sterdevs.mybills.core.ui.utils.UiEventListener
 import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
@@ -16,7 +15,7 @@ import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateRepeatedPassword
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateUsername
 import com.sterdevs.mybills.features.authentication.ui.events.RegistrationFormEvent
-import com.sterdevs.mybills.features.authentication.ui.viewmodels.states.RegistrationFormState
+import com.sterdevs.mybills.features.authentication.ui.states.RegistrationFormState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,8 +24,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    val authenticationUseCases: AuthenticationUseCases,
-    val getUserUseCase: GetUserByUsernameUseCase,
+    private val authenticationUseCases: AuthenticationUseCases,
+    private val getUserUseCase: GetUserByUsernameUseCase,
     fieldValidationUseCases: FieldValidationUseCases,
 ) : ViewModel(), UiEventListener<RegistrationFormEvent> {
 

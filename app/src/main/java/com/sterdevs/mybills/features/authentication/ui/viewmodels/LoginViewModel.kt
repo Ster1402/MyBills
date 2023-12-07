@@ -3,15 +3,15 @@ package com.sterdevs.mybills.features.authentication.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sterdevs.mybills.core.domain.models.User
-import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
-import com.sterdevs.mybills.core.ui.state.AppGlobalState
+import com.sterdevs.mybills.core.ui.events.validations.ValidationEvent
+import com.sterdevs.mybills.core.ui.states.AppGlobalState
 import com.sterdevs.mybills.core.ui.utils.UiEventListener
 import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.FieldValidationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidatePassword
 import com.sterdevs.mybills.features.authentication.domain.use_cases.validation.ValidateUsername
 import com.sterdevs.mybills.features.authentication.ui.events.LoginFormEvent
-import com.sterdevs.mybills.features.authentication.ui.viewmodels.states.LoginFormState
+import com.sterdevs.mybills.features.authentication.ui.states.LoginFormState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    val authenticationUseCases: AuthenticationUseCases,
+    private val authenticationUseCases: AuthenticationUseCases,
     fieldValidationUseCases: FieldValidationUseCases,
 ) : ViewModel(), UiEventListener<LoginFormEvent> {
     private val validateUsername: ValidateUsername = fieldValidationUseCases.validateUsername

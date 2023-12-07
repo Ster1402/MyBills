@@ -1,6 +1,6 @@
 package com.sterdevs.mybills.core.ui.utils
 
-import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
+import com.sterdevs.mybills.core.ui.events.validations.ValidationEvent
 
 interface UiEventListener<EventType> {
     fun onEvent(event: EventType)

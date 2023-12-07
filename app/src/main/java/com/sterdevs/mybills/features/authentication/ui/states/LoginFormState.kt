@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.authentication.ui.viewmodels.states
+package com.sterdevs.mybills.features.authentication.ui.states
 
 data class LoginFormState(
     val username: String = "",

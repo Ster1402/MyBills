@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.core.ui.state
+package com.sterdevs.mybills.core.ui.states
 
 import com.sterdevs.mybills.core.domain.models.User
 import kotlinx.coroutines.flow.MutableStateFlow

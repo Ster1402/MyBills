@@ -11,11 +11,13 @@ data class User(
     val id : Long = 0,
 
     val username : String,
+    val email : String? = null,
     val name : String,
     val countryCode : Int = 237,
     val phoneNumber: String,
     val avatar: String = "", // User profile image path
     val password : String,
+    val isValidated: Boolean = false,
 
     @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
     val createdAt: Long = Instant.now().toEpochMilli(),

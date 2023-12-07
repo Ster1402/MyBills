@@ -19,8 +19,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
-import com.sterdevs.mybills.core.domain.models.validations.ValidationEvent
-import com.sterdevs.mybills.core.domain.models.validations.ValidationEventListener
+import com.sterdevs.mybills.core.ui.events.validations.ValidationEvent
+import com.sterdevs.mybills.core.ui.events.validations.ValidationEventListener
 import com.sterdevs.mybills.databinding.FragmentRegisterBinding
 import com.sterdevs.mybills.features.authentication.ui.events.RegistrationFormEvent
 import com.sterdevs.mybills.features.authentication.ui.viewmodels.RegisterViewModel

@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.core.domain.models.validations
+package com.sterdevs.mybills.core.ui.events.validations
 
 sealed class ValidationEvent {
     data object Pending : ValidationEvent()

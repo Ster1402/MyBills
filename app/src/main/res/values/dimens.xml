@@ -9,6 +9,7 @@
     <dimen name="font_small">14sp</dimen>
 
     <!-- typical spacing between two views -->
+    <dimen name="spacing_xxl">100dp</dimen>
     <dimen name="spacing_extrahuge">60dp</dimen>
     <dimen name="spacing_huge">35dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
@@ -49,5 +50,6 @@
     <dimen name="card_bill_collapse_height">300dp</dimen>
 
     <dimen name="carousel_height">300dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>
