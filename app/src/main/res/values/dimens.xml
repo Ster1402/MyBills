@@ -55,4 +55,7 @@
     <dimen name="carousel_height">300dp</dimen>
     <dimen name="text_margin">16dp</dimen>
 
+    <dimen name="title_card_width">350dp</dimen>
+    <dimen name="title_card_height">90dp</dimen>
+
 </resources>

@@ -55,7 +55,7 @@ class LoginViewModel @Inject constructor(
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
-        _validationEvent.value = ValidationEvent.Pending
+        _validationEvent.value = ValidationEvent.Idle
         _validationEvent.value = event
     }
 
@@ -83,13 +83,12 @@ class LoginViewModel @Inject constructor(
 
         // Emit the validation result event for the fragment to observe
         viewModelScope.launch {
-            // TODO: Save user to the database and update the global state of user
             // Try to login
             try {
                 val user = login()
                 if (user == null) {
                     emitValidationEvent(
-                        ValidationEvent.Failed.setReason("Invalid credentials.")
+                        ValidationEvent.Failed.setReason("Oops! Invalid credentials.")
                     )
                 } else {
                     AppGlobalState.setUser(user)
@@ -99,7 +98,9 @@ class LoginViewModel @Inject constructor(
                 }
             } catch(e: Exception) {
                 emitValidationEvent(
-                    ValidationEvent.Failed
+                    ValidationEvent.Failed.setReason(
+                        "Sorry, an unknown error occur 😢."
+                    )
                 )
             }
         }

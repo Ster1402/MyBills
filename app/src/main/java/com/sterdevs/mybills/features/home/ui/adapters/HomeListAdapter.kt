@@ -8,9 +8,11 @@ import com.sterdevs.mybills.core.domain.models.Home
 import com.sterdevs.mybills.databinding.ItemHomeBinding
 import com.sterdevs.mybills.features.home.ui.views.activities.HomeDetailsActivity
 
-class HomeListAdapter: RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
+class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
     private val homes: MutableList<Home> = generateHomeItems()
-    inner class HomeViewHolder(val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    inner class HomeViewHolder(val binding: ItemHomeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
@@ -20,6 +22,7 @@ class HomeListAdapter: RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 }
             }
         }
+
         private fun launchHomeDetails(homeItem: Home) {
             val intent = Intent(itemView.context, HomeDetailsActivity::class.java)
             intent.putExtra("title", homeItem.name)
@@ -44,15 +47,69 @@ class HomeListAdapter: RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
         holder.binding.locationName.text = home.location
     }
 
-     fun generateHomeItems(): MutableList<Home> {
+    fun generateHomeItems(): MutableList<Home> {
         // Données pour le RecyclerView
         val items = mutableListOf<Home>()
-        items.add(Home(1,"Big Ben City", "@big-ben-city", "Douala, Pk19 entrée Madi","Batiment A",1))
-        items.add(Home(2,"Chicago City", "@chicago-city", "Douala, Pk17 entrée gendarmerie","Batiment A",1))
-        items.add(Home(3,"Big Ben City", "@big-ben-city", "Douala, Pk19 entrée Madi","Batiment B",1))
-        items.add(Home(4,"Chicago City", "@chicago-city", "Douala, Pk17 entrée gendarmerie","Batiment A",1))
-        items.add(Home(5,"Big Ben City", "@big-ben-city", "Douala, Pk19 entrée Madi","Batiment A",1))
-        items.add(Home(6,"Chicago City", "@chicago-city", "Douala, Pk17 entrée gendarmerie","Batiment A",1))
+        items.add(
+            Home(
+                1,
+                "Big Ben City",
+                "@big-ben-city",
+                "Douala, Pk19 entrée Madi",
+                "Batiment A",
+                caretakerId = 1
+            )
+        )
+        items.add(
+            Home(
+                2,
+                "Chicago City",
+                "@chicago-city",
+                "Douala, Pk17 entrée gendarmerie",
+                "Batiment A",
+                caretakerId = 1
+            )
+        )
+        items.add(
+            Home(
+                3,
+                "Big Ben City",
+                "@big-ben-city",
+                "Douala, Pk19 entrée Madi",
+                "Batiment B",
+                caretakerId = 1
+            )
+        )
+        items.add(
+            Home(
+                4,
+                "Chicago City",
+                "@chicago-city",
+                "Douala, Pk17 entrée gendarmerie",
+                "Batiment A",
+                caretakerId = 1
+            )
+        )
+        items.add(
+            Home(
+                5,
+                "Big Ben City",
+                "@big-ben-city",
+                "Douala, Pk19 entrée Madi",
+                "Batiment A",
+                caretakerId = 1
+            )
+        )
+        items.add(
+            Home(
+                6,
+                "Chicago City",
+                "@chicago-city",
+                "Douala, Pk17 entrée gendarmerie",
+                "Batiment A",
+                caretakerId = 1
+            )
+        )
         return items
     }
 

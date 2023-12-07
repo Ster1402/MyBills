@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingsFragment :  Fragment() {
     companion object {
         fun newInstance(): SettingsFragment {

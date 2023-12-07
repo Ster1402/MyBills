@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentHomeBinding
 import com.sterdevs.mybills.features.home.ui.adapters.HomeListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeFragment: Fragment() {
+@AndroidEntryPoint
+class HomeFragment: Fragment(), ScreenUtils {
     private lateinit var binding:FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var homeAdapter: HomeListAdapter
@@ -19,7 +22,7 @@ class HomeFragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         val add_home_view = binding.addHome
         add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment())}
@@ -36,6 +39,18 @@ class HomeFragment: Fragment() {
         recyclerView.adapter = homeAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+    }
+
+    override fun getViews() {
+        TODO("Not yet implemented")
+    }
+
+    override fun initializeDefaultValues() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addViewsEventsListeners() {
+        TODO("Not yet implemented")
     }
 
 }

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewspaperFragment : Fragment() {
     companion object {
         fun newInstance(): NewspaperFragment {

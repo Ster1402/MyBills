@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_app_graph"
-    app:startDestination="@id/loadingFragment">
-
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/loadingFragment"
-        android:name="com.sterdevs.mybills.core.ui.views.fragments.LoadingFragment"
-        android:label="fragment_loading"
-        tools:layout="@layout/fragment_loading" />
+        android:id="@+id/homeFragment"
+        android:name="com.sterdevs.mybills.features.home.ui.views.fragments.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>

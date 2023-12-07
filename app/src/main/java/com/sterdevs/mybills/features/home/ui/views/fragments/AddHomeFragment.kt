@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sterdevs.mybills.databinding.FragmentAddHomeBinding
 import com.sterdevs.mybills.databinding.FragmentEditWalletBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class AddHomeFragment :  BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentAddHomeBinding
