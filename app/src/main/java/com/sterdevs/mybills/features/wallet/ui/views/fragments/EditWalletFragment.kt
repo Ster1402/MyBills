@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sterdevs.mybills.R
-import com.sterdevs.mybills.features.wallet.domain.PaymentMethod
+import com.sterdevs.mybills.features.wallet.domain.models.PaymentMethod
 
 class EditWalletFragment :  BottomSheetDialogFragment() {
     override fun onCreateView(

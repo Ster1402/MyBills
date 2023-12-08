@@ -4,7 +4,7 @@
     <string name="button_text_confirm">Confirm</string>
     <string name="title_text_register">Register</string>
     <string name="title_text_add_home">Join a Home</string>
-    <string name="title_text_home">Home</string>
+    <string name="title_text_home">My Home\'s</string>
     <string name="title_text_wallet">Wallet</string>
     <string name="title_text_news">News</string>
     <string name="title_text_history">History</string>
@@ -81,4 +81,12 @@
     <string name="ok">OK</string>
 
     <string name="message_confirm_delete">Please confirm that you really want to delete this item.</string>
+    <string name="add_home">Add home</string>
+    <string name="label_owner">Owner</string>
+    <string name="label_home_id">Home unique ID</string>
+    <string name="label_creator">Creator</string>
+    <string name="unpaid_bills">Unpaid bills</string>
+    <string name="action_delete_news">Delete home news</string>
+    <string name="show_more">Show more</string>
+    <string name="dummy_text_big_ben_city">Big Ben City</string>
 </resources>

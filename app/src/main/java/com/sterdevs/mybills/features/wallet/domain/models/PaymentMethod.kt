@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.wallet.domain
+package com.sterdevs.mybills.features.wallet.domain.models
 
 
 data class  PaymentMethod(

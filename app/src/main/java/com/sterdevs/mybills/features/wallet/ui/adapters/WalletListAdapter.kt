@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.databinding.ItemWalletBinding
-import com.sterdevs.mybills.features.wallet.domain.PaymentMethod
+import com.sterdevs.mybills.features.wallet.domain.models.PaymentMethod
 
 class WalletListAdapter(private val clickListener: WalletItemClickListener)
     : RecyclerView.Adapter<WalletListAdapter.PaymentMethodViewHolder>() {
@@ -52,8 +52,8 @@ class WalletListAdapter(private val clickListener: WalletItemClickListener)
     override fun onBindViewHolder(holder: PaymentMethodViewHolder, position: Int) {
         val paymentMethod = paymentMethods[position]
         holder.binding.operatorName.text = paymentMethod.operatorName
-        holder.binding.userName.text = paymentMethod.userName
-        holder.binding.userNumber.text = paymentMethod.userNumber
+        holder.binding.itemWalletUsername.text = paymentMethod.userName
+        holder.binding.itemWalletUserPhonenumber.text = paymentMethod.userNumber
     }
 
     private fun generatePaymentMethods(): MutableList<PaymentMethod> {

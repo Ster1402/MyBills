@@ -7,14 +7,13 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.databinding.ActivityMainBinding
 import com.sterdevs.mybills.features.home.ui.fragments.HistoryFragment
-import com.sterdevs.mybills.features.home.ui.fragments.NewspaperFragment
+import com.sterdevs.mybills.features.news.ui.views.fragments.NewsFragment
 import com.sterdevs.mybills.features.home.ui.fragments.SettingsFragment
 import com.sterdevs.mybills.features.wallet.ui.views.fragments.WalletFragment
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sterdevs.mybills.core.ui.states.AppGlobalState
 import com.sterdevs.mybills.core.ui.states.AppGlobalStateObserver
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.features.authentication.ui.views.activities.AuthenticationActivity
@@ -24,9 +23,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
-    private lateinit var toolbarTitle: TextView
+    private lateinit var pageTitle: TextView
     private lateinit var toolbarLogoButton: ImageView
+    private lateinit var usernameTextView: TextView
 
     // Bottom navigation
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -57,38 +56,39 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     private fun replaceToolbarTitle(fragment: Fragment) {
         when (fragment) {
             is HomeFragment -> {
-                toolbarTitle.text = getString(R.string.title_text_home)
-            }
-            is WalletFragment -> {
-                toolbarTitle.text = getString(R.string.title_text_wallet)
-            }
-            is NewspaperFragment -> {
-                toolbarTitle.text = getString(R.string.title_text_news)
-            }
-            is HistoryFragment -> {
-                toolbarTitle.text = getString(R.string.title_text_history)
-            }
-            is SettingsFragment -> {
-                toolbarTitle.text = getString(R.string.title_text_settings)
+                pageTitle.text = getString(R.string.title_text_home)
             }
 
-            else -> toolbarTitle.text = getString(R.string.dummy_content)
+            is WalletFragment -> {
+                pageTitle.text = getString(R.string.title_text_wallet)
+            }
+
+            is NewsFragment -> {
+                pageTitle.text = getString(R.string.title_text_news)
+            }
+
+            is HistoryFragment -> {
+                pageTitle.text = getString(R.string.title_text_history)
+            }
+
+            is SettingsFragment -> {
+                pageTitle.text = getString(R.string.title_text_settings)
+            }
+
+            else -> pageTitle.text = getString(R.string.dummy_content)
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        navController = findNavController(R.id.app_fragment_container)
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
     override fun getViews() {
-        toolbarTitle = binding.toolbarTitle
+        pageTitle = binding.activityMainTitle
+        usernameTextView = binding.activityMainUsername
         toolbarLogoButton = binding.logo
         bottomNavigationView = binding.bottomNavigation
     }
 
     override fun initializeDefaultValues() {
-        toolbarTitle.text = getString(R.string.title_text_home)
+        pageTitle.text = getString(R.string.title_text_home)
+        usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
         replaceFragment(HomeFragment())
     }
 
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
                 }
 
                 R.id.bottom_newspaper -> {
-                    replaceFragment(NewspaperFragment())
+                    replaceFragment(NewsFragment())
                     true
                 }
 

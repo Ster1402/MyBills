@@ -10,10 +10,12 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeDetailsActivity : AppCompatActivity(), ScreenUtils {
     private lateinit var binding: HomeDetailsActivityBinding
-    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = HomeDetailsActivityBinding.inflate(layoutInflater)
@@ -41,14 +43,14 @@ class HomeDetailsActivity : AppCompatActivity(), ScreenUtils {
     }
 
     override fun getViews() {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun initializeDefaultValues() {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun addViewsEventsListeners() {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 }

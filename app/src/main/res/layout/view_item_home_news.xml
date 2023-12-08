@@ -52,7 +52,7 @@
             android:layout_margin="@dimen/spacing_normal"
             android:layout_marginBottom="@dimen/spacing_tiny"
             android:background="@android:drawable/ic_menu_send"
-            android:contentDescription="@string/action_send_message"
+            android:contentDescription="@string/action_delete_news"
             android:pointerIcon="hand"
             android:src="@android:drawable/ic_menu_delete"
             android:visibility="invisible"

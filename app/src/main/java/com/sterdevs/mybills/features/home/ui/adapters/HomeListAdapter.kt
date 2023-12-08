@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.core.domain.models.Home
-import com.sterdevs.mybills.databinding.ItemHomeBinding
+import com.sterdevs.mybills.databinding.ViewItemHomeBinding
 import com.sterdevs.mybills.features.home.ui.views.activities.HomeDetailsActivity
 
 class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
     private val homes: MutableList<Home> = generateHomeItems()
 
-    inner class HomeViewHolder(val binding: ItemHomeBinding) :
+    inner class HomeViewHolder(val binding: ViewItemHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
@@ -34,7 +34,8 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ViewItemHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeViewHolder(binding)
     }
 
@@ -42,9 +43,10 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val home = homes[position]
-        holder.binding.itemTitle.text = home.name
-        holder.binding.homeNameRef.text = home.slug
-        holder.binding.locationName.text = home.location
+        holder.binding.viewItemHomeTitle.text = home.name
+        holder.binding.viewItemHomeSlug.text = home.slug
+        holder.binding.viewItemHomeLocation.text = home.location
+        holder.binding.viewItemHomeCaretaker.text = "Caretaker Name"
     }
 
     fun generateHomeItems(): MutableList<Home> {

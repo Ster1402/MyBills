@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_view"
+    android:id="@+id/item_wallet_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -17,18 +17,19 @@
         <ImageView
             android:id="@+id/item_wallet_operator_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:background="@color/red"
-            android:src="@drawable/baseline_business_24"
+            android:importantForAccessibility="no"
+            android:scaleType="fitCenter"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/orange_money_logo" />
 
         <TextView
             android:id="@+id/operator_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/label_payment_method"
             android:textSize="@dimen/font_large"
@@ -37,56 +38,60 @@
 
         <ImageView
             android:id="@+id/edit_operator_button_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:clickable="true"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
-            android:src="@drawable/baseline_edit_note_24"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pen_to_square" />
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/item_wallet_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_small"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_regular"
             android:text="@string/user_name"
+            android:textColor="@color/black"
             android:textSize="@dimen/font_normal"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@id/operator_name"
             app:layout_constraintTop_toBottomOf="@id/operator_name" />
 
         <TextView
-            android:id="@+id/user_number"
+            android:id="@+id/item_wallet_user_phonenumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/nunito_regular"
             android:text="@string/label_number"
+            android:textColor="@color/black"
             android:textSize="@dimen/font_normal"
-            app:layout_constraintLeft_toLeftOf="@id/user_name"
-            app:layout_constraintTop_toBottomOf="@id/user_name" />
+            android:textStyle="normal"
+            app:layout_constraintLeft_toLeftOf="@id/item_wallet_username"
+            app:layout_constraintTop_toBottomOf="@id/item_wallet_username" />
 
         <ImageView
             android:id="@+id/delete_operator_button_icon"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginBottom="@dimen/spacing_tiny"
             android:clickable="true"
             android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="@id/user_number"
+            app:layout_constraintBottom_toBottomOf="@id/item_wallet_user_phonenumber"
             app:layout_constraintRight_toRightOf="@id/edit_operator_button_icon" />
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_width="200dp"
+            android:layout_height=".5dp"
+            android:layout_marginTop="@dimen/spacing_large"
             android:paddingHorizontal="@dimen/spacing_tiny"
+            app:dividerColor="@color/dark_gray"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/delete_operator_button_icon" />

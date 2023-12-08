@@ -5,44 +5,46 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentHomeBinding
 import com.sterdevs.mybills.features.home.ui.adapters.HomeListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment: Fragment(), ScreenUtils {
-    private lateinit var binding:FragmentHomeBinding
+class HomeFragment : Fragment(), ScreenUtils {
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var homeAdapter: HomeListAdapter
+    private lateinit var floatingButtonAddHome: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
-        val add_home_view = binding.addHome
-        add_home_view.setOnClickListener{ showBottomSheet(AddHomeFragment())}
-        val view = binding.root
-        setupRecyclerView()
-        return view
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        getViews()
+        addViewsEventsListeners()
+
+        return binding.root
     }
+
     private fun showBottomSheet(fragment: BottomSheetDialogFragment) {
         fragment.show(childFragmentManager, fragment.tag)
     }
+
     private fun setupRecyclerView() {
         homeAdapter = HomeListAdapter()
-        recyclerView = binding.recyclerViewId
+        recyclerView = binding.fragmentHomeRecyclerview
         recyclerView.adapter = homeAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
     }
 
     override fun getViews() {
-        TODO("Not yet implemented")
+        setupRecyclerView()
+        floatingButtonAddHome = binding.fragmentHomeBtnAddHome
     }
 
     override fun initializeDefaultValues() {
@@ -50,7 +52,7 @@ class HomeFragment: Fragment(), ScreenUtils {
     }
 
     override fun addViewsEventsListeners() {
-        TODO("Not yet implemented")
+        floatingButtonAddHome.setOnClickListener { showBottomSheet(AddHomeFragment()) }
     }
 
 }

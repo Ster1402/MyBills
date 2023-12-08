@@ -5,28 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.button.MaterialButton
+import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentWalletBinding
 import com.sterdevs.mybills.features.wallet.ui.adapters.WalletListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class WalletFragment: Fragment() , WalletListAdapter.WalletItemClickListener {
+@AndroidEntryPoint
+class WalletFragment: Fragment(), ScreenUtils, WalletListAdapter.WalletItemClickListener {
     private lateinit var binding: FragmentWalletBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var walletAdpater: WalletListAdapter
+    private lateinit var buttonAddWallet: MaterialButton
+    private lateinit var walletRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
          binding = FragmentWalletBinding.inflate(inflater, container, false)
-         val view = binding.root
-         setupRecyclerView()
-        val paymentMode = binding.buttomAddNewPayment
-        paymentMode.setOnClickListener{showBottomSheet(ChooseOperatorFragment())}
-        return view
+
+        getViews()
+        addViewsEventsListeners()
+
+        return binding.root
     }
+
     override fun onEditClicked(position: Int) {
         showBottomSheet(EditWalletFragment())
     }
@@ -35,12 +39,27 @@ class WalletFragment: Fragment() , WalletListAdapter.WalletItemClickListener {
         // Gérer l'événement de suppression ici
     }
     private fun setupRecyclerView() {
-        recyclerView = binding.recyclerViewId
-        walletAdpater = WalletListAdapter(this)
-        recyclerView.adapter = walletAdpater
+        walletRecyclerView = binding.fragmentWalletRecyclerview
+        val walletAdapter = WalletListAdapter(this)
+        walletRecyclerView.adapter = walletAdapter
     }
     private fun showBottomSheet(fragment: BottomSheetDialogFragment) {
         fragment.show(childFragmentManager, fragment.tag)
+    }
+
+    override fun getViews() {
+        setupRecyclerView()
+        buttonAddWallet = binding.fragmentWalletBtnAddWallet
+    }
+
+    override fun initializeDefaultValues() {
+        //
+    }
+
+    override fun addViewsEventsListeners() {
+        buttonAddWallet.setOnClickListener {
+            showBottomSheet(ChooseOperatorFragment())
+        }
     }
 }
 
