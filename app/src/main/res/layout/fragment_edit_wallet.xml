@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    tools:context=".features.wallet.ui.views.fragments.EditWalletFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center|top" />
+
+
+        <TextView
+            android:id="@+id/fragment_edit_wallet_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/title_text_wallet_edit"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_edit_wallet_operator"
+                style="@style/InputTextForBottom"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:hint="@string/label_input_phone_number"
+                app:prefixText="@string/country_code_cameroon">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:paddingEnd="@dimen/input_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragme_operator"
+                style="@style/InputTextForBottom"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:hint="@string/label_input_phone_number"
+                app:prefixText="@string/country_code_cameroon">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:paddingEnd="20dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_wallet_edit_username"
+            style="@style/InputText"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:hint="@string/label_input_username"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/input_padding"
+                android:paddingEnd="@dimen/input_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_edit_wallet_phone_number"
+            style="@style/InputText"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_gravity="center"
+            android:hint="@string/label_input_phone_number"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+            app:prefixText="@string/country_code_cameroon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:paddingStart="@dimen/input_padding"
+                android:paddingEnd="@dimen/input_padding" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/PrimaryButton"
+            android:text="@string/button_text_confirm"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center|top"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<!-- res/layout/nav_header.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+
+    android:paddingStart="16dp"
+
+    android:background="@color/blue">
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/baseline_account_circle_24"
+        android:scaleType="centerCrop"
+        android:layout_gravity="right|top"
+        android:layout_marginBottom="8dp"/>
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-50dp"
+        android:text="Jordy Esprit"
+         android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="john.doe@example.com"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

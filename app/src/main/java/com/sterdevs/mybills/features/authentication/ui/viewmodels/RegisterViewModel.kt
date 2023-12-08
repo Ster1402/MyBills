@@ -130,7 +130,7 @@ class RegisterViewModel @Inject constructor(
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
-        _validationEvent.value = ValidationEvent.Pending
+        _validationEvent.value = ValidationEvent.Idle
         _validationEvent.value = event
     }
 

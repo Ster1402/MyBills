@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    tools:context=".features.home.ui.views.fragments.AddHomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_remove_24"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center|top"/>
+
+        <ImageView
+            android:id="@+id/button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/baseline_close_24"
+            android:clickable="true"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinner_options" />
+
+        <TextView
+            android:id="@+id/fragment_home_detail_payment_choose_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20dp"
+            android:text="@string/label_input_choose_wallet"
+            android:textAlignment="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_home_detail_payment_wallet_phone_number"
+                style="@style/InputText"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:hint="@string/label_input_phone_number"
+                app:prefixText="@string/country_code_cameroon">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/fragment_home_detail_payment_Amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20dp"
+            android:text="@string/label_input_Amount"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/PrimaryButton"
+            android:text="@string/button_text_confirm"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center|top"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

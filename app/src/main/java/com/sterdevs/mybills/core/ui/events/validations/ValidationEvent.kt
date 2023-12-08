@@ -1,6 +1,7 @@
 package com.sterdevs.mybills.core.ui.events.validations
 
 sealed class ValidationEvent {
+    data object Idle : ValidationEvent()
     data object Pending : ValidationEvent()
     data object Success : ValidationEvent()
     data object Failed : ValidationEvent() {

@@ -13,6 +13,7 @@ data class Home(
 
     val name : String,
     val slug : String,
+    val location: String = "",
 
     @ColumnInfo(typeAffinity = ColumnInfo.TEXT)
     val description: String = "",

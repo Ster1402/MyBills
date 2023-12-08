@@ -15,6 +15,13 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:importantForAccessibility">no</item>
     </style>
+    <style name="DividerLineImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="srcCompat">@drawable/baseline_remove_24</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
 
     <style name="Widget.Theme.MyBills.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>
