@@ -137,4 +137,8 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="dummy_text_big_ben_city">Big Ben City</string>
+    <string name="action_send_message">Button Send Message to Home</string>
+    <string name="show_more">Show more <![CDATA[>]]></string>
+    <string name="hide">Hide</string>
 </resources>
