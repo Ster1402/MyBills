@@ -25,10 +25,8 @@ class HomeFragment : Fragment(), ScreenUtils {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         getViews()
         addViewsEventsListeners()
-
         return binding.root
     }
 
