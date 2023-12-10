@@ -1,75 +1,72 @@
 package com.sterdevs.mybills.features.news.ui.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sterdevs.mybills.databinding.ViewItemMessageBinding
+import com.sterdevs.mybills.databinding.ViewItemHomeNewsBinding
 import com.sterdevs.mybills.features.news.domain.models.New
 
-class NewListAdapter : RecyclerView.Adapter<NewListAdapter.NewViewHolder>() {
-    private val infomessages: MutableList<New> = generateNewItems()
-    private var onItemClickListener: OnItemClickListener? = null
-
-    interface OnItemClickListener {
-        fun onItemClick(new: New)
-    }
-
-    inner class NewViewHolder(val binding: ViewItemMessageBinding) :
+class NewListAdapter(override val childRecyclerViewId: Int) :
+    RecyclerView.Adapter<NewListAdapter.NewListViewHolder>(),
+    NewListViewAdapter.OnChildItemClickListener {
+    private val new: MutableList<New> = generateNews()
+    private val childRecyclerViewButtonVisibility: MutableMap<Int, Boolean> = mutableMapOf()
+    inner class NewListViewHolder(val binding: ViewItemHomeNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    val infosms = infomessages[position]
+                    val currentNews = new[position]
+                    binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
                 }
             }
         }
+
     }
 
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        onItemClickListener = listener
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): NewListAdapter.NewListViewHolder {
         val binding =
-            ViewItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NewViewHolder(binding)
+            ViewItemHomeNewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return NewListViewHolder(binding)
 
     }
 
-    override fun getItemCount(): Int = infomessages.size
+    override fun getItemCount(): Int = new.size
 
-    override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
-        val infosms = infomessages[position]
-        holder.binding.viewItemMessageSender.text = infosms.role
-        holder.binding.viewItemMessageTime.text = infosms.time
-        holder.binding.viewItemMessageText.text = infosms.messages
+    override fun onBindViewHolder(holder: NewListAdapter.NewListViewHolder, position: Int) {
+        val newItem = new[position]
+        holder.binding.viewItemHomeNewsTitleText.text = newItem.cityName
+        val newListViewAdapter = NewListViewAdapter(childRecyclerViewId,this)
+        holder.binding.homeNewsRecyclerView.adapter = newListViewAdapter
 
-        holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(infosms)
+        val isButtonVisible = childRecyclerViewButtonVisibility[childRecyclerViewId] ?: false
+
+        if (isButtonVisible){
+            holder.binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
+        } else {
+            holder.binding.viewItemHomeNewsClearMessageButton.visibility = View.GONE
         }
     }
 
-    fun generateNewItems(): MutableList<New> {
+    fun generateNews(): MutableList<New> {
         val items = mutableListOf<New>()
         items.add(
-            New(
-                "The owner",
-                "Bonjour à tous,\n" +
-                        "Les travaux de réhabilitation de l'immeuble commenceront ce Weekend.",
-                "45 min ago"
-            )
+            New("BIG BEN CITY")
         )
         items.add(
-            New(
-                "The carataker",
-                "Bonjour à tous,\n" +
-                        "Vous devez pensez à payer vos loyer avant la fin de ce mois. Pour les nouveaux c'est minimum 6mois.",
-                "05 min ago"
-            )
+            New("CHICAGO CITY")
         )
         return items
     }
 
+    override fun onChildItemClick(childRecyclerViewId: Int) {
+        childRecyclerViewButtonVisibility[childRecyclerViewId] = true
+        notifyDataSetChanged()
+    }
 }

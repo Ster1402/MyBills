@@ -1,91 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_news_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:contentPadding="@dimen/spacing_small"
-    app:strokeWidth="0dp"
     tools:context=".features.news.ui.views.fragments.NewsFragment">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/view_item_home_news_title_text"
-            style="@style/CardNewsTitleText"
-            android:text="@string/dummy_text_big_ben_city"
-            android:textColor="@color/blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/view_item_home_news_title_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:layout_marginBottom="@dimen/spacing_small"
-            android:importantForAccessibility="no"
-            app:layout_constraintBottom_toBottomOf="@id/view_item_home_news_title_text"
-            app:layout_constraintLeft_toRightOf="@id/view_item_home_news_title_text"
-            app:layout_constraintTop_toTopOf="@id/view_item_home_news_title_text"
-            app:srcCompat="@drawable/check_icon" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_news_recycler_view"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/spacing_tiny"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintLeft_toRightOf="@id/view_item_home_news_cardDivider_vertical"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_item_home_news_cardDivider_vertical"
-            tools:itemCount="5"
-            tools:listitem="@layout/view_item_message" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/view_item_home_news_clear_message_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_normal"
-            android:layout_marginBottom="16dp"
-            android:background="@android:drawable/ic_menu_send"
-            android:contentDescription="@string/action_delete_news"
-            android:pointerIcon="hand"
-            android:src="@android:drawable/ic_menu_delete"
-            android:visibility="invisible"
-            app:backgroundTint="@color/red"
-            app:backgroundTintMode="src_atop"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:maxImageSize="35dp"
-            tools:visibility="visible" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/view_item_home_news_cardDivider_vertical"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            app:cardBackgroundColor="@color/light_gray"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/home_news_text_button_expand"
-            app:layout_constraintLeft_toLeftOf="@id/view_item_home_news_title_text"
-            app:layout_constraintTop_toBottomOf="@id/view_item_home_news_title_text"
-            app:strokeColor="@color/light_gray" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/home_news_text_button_expand"
-            style="@style/ButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/spacing_small"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:text="@string/show_more"
-            app:layout_constraintLeft_toRightOf="@id/view_item_home_news_cardDivider_vertical"
-            app:layout_constraintTop_toBottomOf="@id/home_news_recycler_view" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/view_item_home_news" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

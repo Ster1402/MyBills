@@ -3,10 +3,11 @@ package com.sterdevs.mybills
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.databinding.ActivityMainBinding
-import com.sterdevs.mybills.features.home.ui.fragments.HistoryFragment
+import com.sterdevs.mybills.features.bills.ui.views.HistoryFragment
 import com.sterdevs.mybills.features.news.ui.views.fragments.NewsFragment
 import com.sterdevs.mybills.features.home.ui.fragments.SettingsFragment
 import com.sterdevs.mybills.features.wallet.ui.views.fragments.WalletFragment
@@ -79,6 +80,16 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         }
     }
 
+    private fun addBadgeToBottomNavigationItem(
+        bottomNavigationView: BottomNavigationView,
+        itemId: Int,
+        badgeCount: Int
+    ) {
+        val menuItem: MenuItem = bottomNavigationView.menu.findItem(itemId)
+        val badgeDrawable = bottomNavigationView.getOrCreateBadge(menuItem.itemId)
+        badgeDrawable.number = badgeCount
+    }
+
     override fun getViews() {
         pageTitle = binding.activityMainTitle
         usernameTextView = binding.activityMainUsername
@@ -90,6 +101,8 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         pageTitle.text = getString(R.string.title_text_home)
         usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
         replaceFragment(HomeFragment())
+      //  val menuItem: MenuItem = binding.bottomNavigation.menu.getItem(R.id.bottom_newspaper)
+        //addBadgeToBottomNavigationItem(bottomNavigationView,2,5)
     }
 
     override fun addViewsEventsListeners() {
