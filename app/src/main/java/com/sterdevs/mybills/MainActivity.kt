@@ -42,10 +42,24 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         initializeDefaultValues()
         // Add listeners on views
         addViewsEventsListeners()
+        //Add Badges
+        setupBadge(bottomNavigationView, R.id.bottom_newspaper, true,5)
+        setupBadge(bottomNavigationView, R.id.bottom_history, true,2)
+        setupBadge(bottomNavigationView, R.id.bottom_home, true,20)
     }
 
     private fun openDrawer() {
         binding.drawerLayout.openDrawer(GravityCompat.START)
+    }
+    private fun setupBadge(
+        bottomNavigationView: BottomNavigationView,
+        itemId: Int,
+        isVisible: Boolean = false,
+        number: Int = 0
+    ) {
+        val badge = bottomNavigationView.getOrCreateBadge(itemId)
+        badge.isVisible = isVisible
+        badge.number = number
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -80,16 +94,6 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         }
     }
 
-    private fun addBadgeToBottomNavigationItem(
-        bottomNavigationView: BottomNavigationView,
-        itemId: Int,
-        badgeCount: Int
-    ) {
-        val menuItem: MenuItem = bottomNavigationView.menu.findItem(itemId)
-        val badgeDrawable = bottomNavigationView.getOrCreateBadge(menuItem.itemId)
-        badgeDrawable.number = badgeCount
-    }
-
     override fun getViews() {
         pageTitle = binding.activityMainTitle
         usernameTextView = binding.activityMainUsername
@@ -104,7 +108,6 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
       //  val menuItem: MenuItem = binding.bottomNavigation.menu.getItem(R.id.bottom_newspaper)
         //addBadgeToBottomNavigationItem(bottomNavigationView,2,5)
     }
-
     override fun addViewsEventsListeners() {
         toolbarLogoButton.setOnClickListener {
             openDrawer()

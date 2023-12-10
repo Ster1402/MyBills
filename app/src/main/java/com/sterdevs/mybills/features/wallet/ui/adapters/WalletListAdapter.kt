@@ -1,7 +1,10 @@
 package com.sterdevs.mybills.features.wallet.ui.adapters
 
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.databinding.ItemWalletBinding
 import com.sterdevs.mybills.features.wallet.domain.models.PaymentMethod
@@ -64,4 +67,34 @@ class WalletListAdapter(private val clickListener: WalletItemClickListener)
         items.add(PaymentMethod("MTN MOMO", "Jordy Esprit", "673456789"))
         return items
     }
+    private fun showDeleteConfirmationDialog(context: Context, position: Int) {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+
+        alertDialogBuilder.setTitle("Confirmation")
+        alertDialogBuilder.setMessage("Voulez-vous vraiment supprimer ce Payment?")
+
+        // Bouton de confirmation
+        alertDialogBuilder.setPositiveButton("Oui") { dialog, which ->
+            // Supprimez l'élément de votre liste ou effectuez toute autre action
+            // en fonction du clic sur le bouton "Oui"
+            Toast.makeText(context, "Élément supprimé!", Toast.LENGTH_SHORT).show()
+            // TODO: Ajoutez votre logique de suppression ici
+
+            // Fermez la boîte de dialogue
+            dialog.dismiss()
+        }
+
+        // Bouton d'annulation
+        alertDialogBuilder.setNegativeButton("Non") { dialog, which ->
+            // Annulez l'action de suppression
+            Toast.makeText(context, "Suppression annulée", Toast.LENGTH_SHORT).show()
+
+            // Fermez la boîte de dialogue
+            dialog.dismiss()
+        }
+
+
+        alertDialogBuilder.create().show()
+    }
+
 }

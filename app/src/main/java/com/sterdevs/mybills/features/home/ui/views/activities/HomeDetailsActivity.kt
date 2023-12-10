@@ -36,10 +36,9 @@ class HomeDetailsActivity : AppCompatActivity(), ScreenUtils {
         titleTextView.text = title
 
         // Go to Home
-        /*  binding.backToHome.setOnClickListener {
-              it.findNavController().navigate(R.id.action_homeDetailsActivity_to_homeFragment)
-          }*/
-
+        binding.backToHome.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     override fun getViews() {
