@@ -31,6 +31,15 @@ class ValidateUsername {
             )
         }
 
+        val regex = Regex("^[a-zA-Z\\-_0-9]{3,}$")
+
+        if (!regex.matches(username)) {
+            return ValidationResult(
+                isSuccessful = false,
+                error = UsernameValidationError.InvalidFormat
+            )
+        }
+
         return ValidationResult(isSuccessful = true)
     }
 }

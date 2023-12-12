@@ -10,6 +10,8 @@
     android:clickable="true"
     android:longClickable="true"
     app:cardBackgroundColor="@color/light_blue"
+    app:checkedIconGravity="BOTTOM_END"
+    app:checkedIconTint="@color/blue"
     app:contentPaddingBottom="@dimen/spacing_small"
     app:strokeWidth="0dp">
 

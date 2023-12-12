@@ -3,22 +3,17 @@ package com.sterdevs.mybills.features.home.ui.views.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.sterdevs.mybills.databinding.HomeDetailsActivityBinding
-import com.sterdevs.mybills.R
-import com.sterdevs.mybills.features.home.ui.views.fragments.HomeFragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
+import com.sterdevs.mybills.databinding.ActivityHomeDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeDetailsActivity : AppCompatActivity(), ScreenUtils {
-    private lateinit var binding: HomeDetailsActivityBinding
+    private lateinit var binding: ActivityHomeDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = HomeDetailsActivityBinding.inflate(layoutInflater)
+        binding = ActivityHomeDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Gets binding views

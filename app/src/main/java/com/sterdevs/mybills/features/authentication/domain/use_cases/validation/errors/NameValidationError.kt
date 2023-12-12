@@ -10,5 +10,9 @@ class NameValidationError(errorMessage: String, description: String) :
             "The user name isn't valid.",
             "The name should be at least $MIN_NAME_LENGTH and at most $MAX_NAME_LENGTH characters long."
         )
+        val InvalidFormat = NameValidationError(
+            "The name format isn't valid.",
+            "The name should contain only letters or hyphen (-)."
+        )
     }
 }

@@ -51,5 +51,5 @@ This project is licensed under the MIT License.
 
 * Material Design documentation guidelines
 * Youtube tutorial by [Android Knowledge](https://) (how to use the Room database, view model, live data, etc)
-* Youtube tutorial by [Phillipp Lackner](https://) : Inspiration on how to structure the project using [Clean Architecture](https://)
-* Google Official [documentation](https://) on Android.
+* Youtube tutorial by [Phillipp Lackner](https://www.youtube.com/@PhilippLackner/videos) : Inspiration on how to structure the project using [Clean Architecture](https://www.educative.io/blog/clean-architecture-tutorial)
+* Google Official [documentation](https://developer.android.com/) on Android.

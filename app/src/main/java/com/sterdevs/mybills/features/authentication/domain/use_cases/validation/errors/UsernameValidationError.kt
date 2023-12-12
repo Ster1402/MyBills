@@ -19,5 +19,9 @@ class UsernameValidationError(errorMessage: String, description: String) :
             "There is no value for the username.",
             "This username doesn't have any value."
         )
+        val InvalidFormat = UsernameValidationError(
+            "The username format isn't valid.",
+            "The username should contains only letters / digits / hyphen (-) / underscore (_)."
+        )
     }
 }

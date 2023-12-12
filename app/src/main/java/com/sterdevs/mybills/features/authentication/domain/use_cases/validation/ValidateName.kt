@@ -14,6 +14,15 @@ class ValidateName {
             )
         }
 
+        val regex = Regex("^[a-zA-Z\\s\\-]{2,}$")
+
+        if (!regex.matches(name)) {
+            return ValidationResult(
+                isSuccessful = false,
+                error = NameValidationError.InvalidFormat
+            )
+        }
+
         return ValidationResult(isSuccessful = true)
     }
 }

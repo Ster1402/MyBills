@@ -3,16 +3,18 @@ package com.sterdevs.mybills
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.databinding.ActivityMainBinding
 import com.sterdevs.mybills.features.home.ui.fragments.HistoryFragment
 import com.sterdevs.mybills.features.news.ui.views.fragments.NewsFragment
-import com.sterdevs.mybills.features.home.ui.fragments.SettingsFragment
+import com.sterdevs.mybills.features.settings.ui.views.fragments.SettingsFragment
 import com.sterdevs.mybills.features.wallet.ui.views.fragments.WalletFragment
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.sterdevs.mybills.core.ui.states.AppGlobalState
 import com.sterdevs.mybills.core.ui.states.AppGlobalStateObserver
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
@@ -26,6 +28,10 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     private lateinit var pageTitle: TextView
     private lateinit var toolbarLogoButton: ImageView
     private lateinit var usernameTextView: TextView
+    private lateinit var navigationDrawerView: NavigationView
+    private lateinit var headerDrawerView: View
+    private lateinit var drawerUserFullname: TextView
+    private lateinit var drawerUsername: TextView
 
     // Bottom navigation
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -82,6 +88,10 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     override fun getViews() {
         pageTitle = binding.activityMainTitle
         usernameTextView = binding.activityMainUsername
+        navigationDrawerView = binding.navigationView
+        headerDrawerView = navigationDrawerView.getHeaderView(0)
+        drawerUserFullname = headerDrawerView.findViewById(R.id.drawer_user_fullname)
+        drawerUsername = headerDrawerView.findViewById(R.id.drawer_username)
         toolbarLogoButton = binding.logo
         bottomNavigationView = binding.bottomNavigation
     }
@@ -89,6 +99,8 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     override fun initializeDefaultValues() {
         pageTitle.text = getString(R.string.title_text_home)
         usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
+        drawerUserFullname.text = AppGlobalState.userState.value?.name ?: "Unknown"
+        drawerUsername.text = AppGlobalState.userState.value?.username ?: "Unknown"
         replaceFragment(HomeFragment())
     }
 

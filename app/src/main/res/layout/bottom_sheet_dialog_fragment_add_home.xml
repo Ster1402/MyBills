@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,22 +16,24 @@
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="80dp"
             android:layout_height="2dp"
-            android:layout_gravity="center|top"
-            android:layout_marginBottom="10dp"
-            app:dividerColor="@color/royal_blue"/>
+            android:layout_gravity="center|top" />
+
         <TextView
             android:id="@+id/fragment_add_home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="20dp"
-            android:text="@string/title_text_add_home"
             android:layout_gravity="center"
-            android:textAlignment="center" />
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/title_text_add_home"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/fragment_add_home_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/title_text_add_home_unique_id"
             android:textAlignment="center"
@@ -48,6 +50,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:paddingStart="@dimen/input_padding"
                 android:paddingEnd="@dimen/input_padding" />
 
@@ -69,4 +72,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

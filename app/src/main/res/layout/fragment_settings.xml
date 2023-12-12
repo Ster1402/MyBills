@@ -4,14 +4,465 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.home.ui.fragments.SettingsFragment">
+    tools:context=".features.settings.ui.views.fragments.SettingsFragment">
 
-    <TextView
-        android:id="@+id/fragment_Settings"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:gravity="center"
-        android:text="Settings Fragment"/>
+        android:importantForAccessibility="no">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_normal">
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/fragment_settings_divider2"
+                android:layout_width="0dp"
+                android:layout_height=".6dp"
+                android:layout_marginHorizontal="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_large"
+                app:dividerColor="@color/light_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_btn_update_personal_input_layout" />
+
+            <TextView
+                android:id="@+id/fragment_settings_title_name"
+                style="@style/TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:textColor="@color/royal_blue"
+                android:textSize="@dimen/font_large"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nde Tsapi Stève-Roland" />
+
+            <ImageView
+                android:id="@+id/fragment_settings_deco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/fragment_settings_title_name"
+                app:layout_constraintStart_toStartOf="@id/fragment_settings_title_name"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_title_name"
+                app:srcCompat="@drawable/zig_zag_decor"
+                app:tint="@color/red" />
+
+            <TextView
+                android:id="@+id/fragment_settings_title_username"
+                style="@style/InfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_settings_title_name"
+                app:layout_constraintStart_toStartOf="@+id/fragment_settings_title_name"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_deco"
+                tools:text="SterDevs" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/fragment_settings_divider"
+                android:layout_width="0dp"
+                android:layout_height=".6dp"
+                android:layout_marginHorizontal="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_normal"
+                app:dividerColor="@color/light_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_title_username" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/CardTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/personal"
+                android:textSize="@dimen/font_normal"
+                app:layout_constraintStart_toStartOf="@+id/fragment_settings_divider"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_divider" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/baseline_account_circle_24"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/textView6"
+                app:tint="@color/blue" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_name_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_small"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_input_name"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_username_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_name_input_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_username_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_input_username"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_phone_number_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_username_input_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_phone_number_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_input_phone_number"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_password_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:hint="@string/label_input_old_password"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView6"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_phone_number_input_layout"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/dark_gray">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_new_password_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:hint="@string/label_input_new_password"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView6"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_password_input_layout"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/dark_gray">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_new_password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_settings_repeated_password_input_layout"
+                style="@style/InputText"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:hint="@string/label_input_password_confirmation"
+                app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/input_layout_box_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textView6"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_new_password_input_layout"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/dark_gray">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_settings_repeated_password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/input_padding"
+                    android:paddingEnd="@dimen/input_padding" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/settings_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_title_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fragment_settings_title_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotationY="-179"
+                android:src="@drawable/settings_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_settings_title_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_settings_btn_update_personal_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:background="@drawable/background_title"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/update"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_repeated_password_input_layout" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/CardTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/caretaker"
+                android:textSize="@dimen/font_normal"
+                app:layout_constraintStart_toStartOf="@+id/fragment_settings_divider"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_settings_divider2" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/admin"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toTopOf="@+id/textView8"
+                app:tint="@color/blue" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fragment_settings_caretaker_card_create_home"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/green"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="@dimen/spacing_small"
+                app:layout_constraintLeft_toLeftOf="@id/textView8"
+                app:layout_constraintRight_toRightOf="@id/fragment_settings_divider_caretaker_tools"
+                app:layout_constraintTop_toBottomOf="@id/textView8"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/fragment_settings_caretaker_card_create_home_title_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:src="@drawable/home"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/fragment_settings_caretaker_card_create_home_title_text"
+                        style="@style/CardTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/spacing_small"
+                        android:paddingTop="3dp"
+                        android:text="@string/caretaker_create_home_label"
+                        android:textSize="@dimen/font_normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/fragment_settings_divider_caretaker_tools"
+                android:layout_width=".5dp"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_settings_caretaker_card_create_home"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_settings_caretaker_card_create_home" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fragment_settings_caretaker_card_create_bill"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="8dp"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/light_blue"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="@dimen/spacing_small"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_settings_divider_caretaker_tools"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_settings_caretaker_card_create_home"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="1dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/fragment_settings_caretaker_card_create_bill_title_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical|start"
+                        app:srcCompat="@drawable/bill"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/fragment_settings_caretaker_card_create_bill_title_text"
+                        style="@style/CardTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/spacing_small"
+                        android:paddingTop="3dp"
+                        android:text="@string/caretaker_create_bill_label"
+                        android:textSize="@dimen/font_normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fragment_settings_caretaker_card_send_message"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="@dimen/spacing_small"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_settings_caretaker_card_create_home"
+                app:layout_constraintRight_toRightOf="@id/fragment_settings_caretaker_card_create_bill"
+                app:layout_constraintTop_toBottomOf="@id/fragment_settings_caretaker_card_create_home"
+                app:strokeColor="@color/royal_blue"
+                app:strokeWidth="1dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/fragment_settings_caretaker_card_send_message_title_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical|start"
+                        app:srcCompat="@drawable/message"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/fragment_settings_caretaker_card_send_message_title_text"
+                        style="@style/CardTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/spacing_small"
+                        android:paddingTop="3dp"
+                        android:textColor="@color/white"
+                        android:text="@string/caretaker_send_message_label"
+                        android:textSize="@dimen/font_normal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

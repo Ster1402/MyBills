@@ -74,12 +74,11 @@ class LoginViewModel @Inject constructor(
                 username = _state.value.username,
                 password = _state.value.password,
                 usernameError = validateUsername.execute(_state.value.username).error?.errorMessage,
-                passwordError = validateUsername.execute(_state.value.password).error?.errorMessage
+                passwordError = validatePassword.execute(_state.value.password).error?.errorMessage
             )
 
             return
         }
-
 
         // Emit the validation result event for the fragment to observe
         viewModelScope.launch {
@@ -88,7 +87,7 @@ class LoginViewModel @Inject constructor(
                 val user = login()
                 if (user == null) {
                     emitValidationEvent(
-                        ValidationEvent.Failed.setReason("Oops! Invalid credentials.")
+                        ValidationEvent.Failed.setReason("Oops 😢!\nInvalid credentials.")
                     )
                 } else {
                     AppGlobalState.setUser(user)
@@ -96,17 +95,17 @@ class LoginViewModel @Inject constructor(
                         ValidationEvent.Success
                     )
                 }
-            } catch(e: Exception) {
+            } catch (e: Exception) {
                 emitValidationEvent(
                     ValidationEvent.Failed.setReason(
-                        "Sorry, an unknown error occur 😢."
+                        "Sorry, an unknown error occur 😢.\n Please verify your credentials or internet connection."
                     )
                 )
             }
         }
     }
 
-    private suspend fun login() : User? {
+    private suspend fun login(): User? {
         return authenticationUseCases.loginUseCase.execute(
             username = _state.value.username,
             password = _state.value.password,
