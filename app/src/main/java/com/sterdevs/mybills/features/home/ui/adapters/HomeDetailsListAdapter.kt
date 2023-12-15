@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.bills.ui.adapters
+package com.sterdevs.mybills.features.home.ui.adapters
 
 import android.text.format.DateFormat
 import android.view.LayoutInflater
@@ -10,14 +10,13 @@ import com.sterdevs.mybills.core.domain.models.enums.BillsTags
 import com.sterdevs.mybills.core.ui.adapters.CarouselImagesAdapter
 import com.sterdevs.mybills.databinding.ViewItemBillsBinding
 import com.sterdevs.mybills.features.bills.domain.models.Bill
-import com.sterdevs.mybills.features.news.domain.models.New
 
-class BillsListAdapters() :
-    RecyclerView.Adapter<BillsListAdapters.BillViewHolder>() {
+class HomeDetailsListAdapter () :
+    RecyclerView.Adapter<HomeDetailsListAdapter.HomeDetailsViewHolder>() {
 
     private val bills: MutableList<Bill> = generateBills()
 
-    inner class BillViewHolder(val binding: ViewItemBillsBinding) :
+    inner class HomeDetailsViewHolder(val binding: ViewItemBillsBinding) :
         RecyclerView.ViewHolder(binding.root) {
     }
 
@@ -44,14 +43,15 @@ class BillsListAdapters() :
         return items
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillViewHolder {
-        val binding = ViewItemBillsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BillViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDetailsViewHolder {
+        val binding =
+            ViewItemBillsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeDetailsViewHolder(binding)
     }
 
     override fun getItemCount(): Int = bills.size
 
-    override fun onBindViewHolder(holder: BillViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeDetailsViewHolder, position: Int) {
         val bill = bills[position]
 
         holder.binding.apply {
@@ -78,10 +78,12 @@ class BillsListAdapters() :
                     viewItemBillTxtType.setText(R.string.title_bills_type_electricity)
                     viewItemBillIconType.setImageResource(R.drawable.flash_decor)
                 }
+
                 BillsTags.WATER.value -> {
                     viewItemBillTxtType.setText(R.string.title_bills_type_water)
                     viewItemBillIconType.setImageResource(R.drawable.water)
                 }
+
                 else -> {
                     viewItemBillTxtType.setText(R.string.title_bills_type_rent)
                     viewItemBillIconType.visibility = View.GONE

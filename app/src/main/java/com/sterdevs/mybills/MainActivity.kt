@@ -43,14 +43,15 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         // Add listeners on views
         addViewsEventsListeners()
         //Add Badges
-        setupBadge(bottomNavigationView, R.id.bottom_newspaper, true,5)
-        setupBadge(bottomNavigationView, R.id.bottom_history, true,2)
-        setupBadge(bottomNavigationView, R.id.bottom_home, true,20)
+        setupBadge(bottomNavigationView, R.id.bottom_newspaper, true, 5)
+        setupBadge(bottomNavigationView, R.id.bottom_history, true, 2)
+        setupBadge(bottomNavigationView, R.id.bottom_home, true, 20)
     }
 
     private fun openDrawer() {
         binding.drawerLayout.openDrawer(GravityCompat.START)
     }
+
     private fun setupBadge(
         bottomNavigationView: BottomNavigationView,
         itemId: Int,
@@ -105,9 +106,8 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         pageTitle.text = getString(R.string.title_text_home)
         usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
         replaceFragment(HomeFragment())
-      //  val menuItem: MenuItem = binding.bottomNavigation.menu.getItem(R.id.bottom_newspaper)
-        //addBadgeToBottomNavigationItem(bottomNavigationView,2,5)
     }
+
     override fun addViewsEventsListeners() {
         toolbarLogoButton.setOnClickListener {
             openDrawer()

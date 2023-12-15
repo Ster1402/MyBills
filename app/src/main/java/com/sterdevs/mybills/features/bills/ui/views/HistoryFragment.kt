@@ -28,7 +28,6 @@ class HistoryFragment : Fragment(), ScreenUtils {
     }
 
     private fun setupRecyclerView() {
-        val bills = listOf<Bill>()
         billAdapter = BillsListAdapters()
         recyclerView = binding.card
         recyclerView.adapter = billAdapter
