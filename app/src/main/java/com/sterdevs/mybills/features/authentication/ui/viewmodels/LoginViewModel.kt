@@ -33,8 +33,10 @@ class LoginViewModel @Inject constructor(
     val validationEvent = _validationEvent.asStateFlow()
 
     override fun onEvent(event: LoginFormEvent) {
+
         when (event) {
             is LoginFormEvent.UsernameChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     username = event.username,
                     usernameError = validateUsername.execute(event.username).error?.errorMessage
@@ -42,6 +44,7 @@ class LoginViewModel @Inject constructor(
             }
 
             is LoginFormEvent.PasswordChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     password = event.password,
                     passwordError = validatePassword.execute(event.password).error?.errorMessage
@@ -55,7 +58,6 @@ class LoginViewModel @Inject constructor(
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
-        _validationEvent.value = ValidationEvent.Idle
         _validationEvent.value = event
     }
 

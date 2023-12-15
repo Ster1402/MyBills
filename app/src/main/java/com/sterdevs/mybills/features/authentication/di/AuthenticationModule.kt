@@ -1,6 +1,7 @@
 package com.sterdevs.mybills.features.authentication.di
 
 import com.sterdevs.mybills.core.domain.repository.UserRepository
+import com.sterdevs.mybills.core.domain.services.PasswordHashService
 import com.sterdevs.mybills.features.authentication.domain.use_cases.AuthenticationUseCases
 import com.sterdevs.mybills.features.authentication.domain.use_cases.LoginUseCase
 import com.sterdevs.mybills.features.authentication.domain.use_cases.LogoutUseCase
@@ -23,10 +24,10 @@ class AuthenticationModule {
 
     @Provides
     @ViewModelScoped
-    fun providesAuthenticationUseCases(userRepository: UserRepository) : AuthenticationUseCases {
+    fun providesAuthenticationUseCases(userRepository: UserRepository, passwordHashService: PasswordHashService) : AuthenticationUseCases {
         return AuthenticationUseCases(
-            loginUseCase = LoginUseCase(userRepository),
-            registerUseCase = RegisterUseCase(userRepository),
+            loginUseCase = LoginUseCase(userRepository, passwordHashService),
+            registerUseCase = RegisterUseCase(userRepository, passwordHashService),
             logoutUseCase = LogoutUseCase(userRepository)
         )
     }

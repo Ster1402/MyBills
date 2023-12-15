@@ -46,8 +46,10 @@ class RegisterViewModel @Inject constructor(
 
     // Manage an event that occur in the IViewModels EventType (Here RegistrationFormEvent)
     override fun onEvent(event: RegistrationFormEvent) {
+
         when (event) {
             is RegistrationFormEvent.NameChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     name = event.name,
                     nameError = validateName.execute(event.name).error?.errorMessage
@@ -55,6 +57,7 @@ class RegisterViewModel @Inject constructor(
             }
 
             is RegistrationFormEvent.UsernameChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     username = event.username,
                     usernameError = validateUsername.execute(event.username).error?.errorMessage
@@ -62,6 +65,7 @@ class RegisterViewModel @Inject constructor(
             }
 
             is RegistrationFormEvent.PhoneNumberChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     phoneNumber = event.phoneNumber,
                     phoneNumberError = validatePhoneNumber.execute(event.phoneNumber).error?.errorMessage
@@ -69,6 +73,7 @@ class RegisterViewModel @Inject constructor(
             }
 
             is RegistrationFormEvent.PasswordChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     password = event.password,
                     passwordError = validatePassword.execute(event.password).error?.errorMessage
@@ -76,6 +81,7 @@ class RegisterViewModel @Inject constructor(
             }
 
             is RegistrationFormEvent.RepeatedPasswordChanged -> {
+                _validationEvent.value = ValidationEvent.Idle
                 _state.value = _state.value.copy(
                     repeatedPassword = event.repeatedPassword,
                     repeatedPasswordError = validateRepeatedPassword.execute(
@@ -130,7 +136,6 @@ class RegisterViewModel @Inject constructor(
     }
 
     override fun emitValidationEvent(event: ValidationEvent) {
-        _validationEvent.value = ValidationEvent.Idle
         _validationEvent.value = event
     }
 

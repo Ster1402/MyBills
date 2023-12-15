@@ -82,6 +82,7 @@
     <style name="CardTitleText" parent="TitleText">
         <item name="android:textColor">@color/royal_blue</item>
         <item name="android:textSize">@dimen/font_xlarge</item>
+        <item name="android:textIsSelectable">false</item>
     </style>
 
     <style name="CardDateText" parent="ContentText">

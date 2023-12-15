@@ -13,6 +13,9 @@ import com.sterdevs.mybills.features.settings.ui.views.fragments.SettingsFragmen
 import com.sterdevs.mybills.features.wallet.ui.views.fragments.WalletFragment
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.sterdevs.mybills.core.ui.states.AppGlobalState
@@ -21,6 +24,8 @@ import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.features.authentication.ui.views.activities.AuthenticationActivity
 import com.sterdevs.mybills.features.home.ui.views.fragments.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
@@ -45,8 +50,11 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         getViews()
         // Initialize defaults values if any
         initializeDefaultValues()
+        replaceFragment(HomeFragment())
         // Add listeners on views
         addViewsEventsListeners()
+        // Add observables
+        subscribeToObservables()
     }
 
     private fun openDrawer() {
@@ -97,11 +105,9 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     }
 
     override fun initializeDefaultValues() {
-        pageTitle.text = getString(R.string.title_text_home)
         usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
         drawerUserFullname.text = AppGlobalState.userState.value?.name ?: "Unknown"
         drawerUsername.text = AppGlobalState.userState.value?.username ?: "Unknown"
-        replaceFragment(HomeFragment())
     }
 
     override fun addViewsEventsListeners() {
@@ -139,6 +145,24 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
                 else -> {
                     false
                 }
+            }
+        }
+
+        // Drawer navigation
+    }
+
+    override fun subscribeToObservables() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                observeUserStateChanged()
+            }
+        }
+    }
+
+    override suspend fun observeUserStateChanged() {
+        AppGlobalState.userState.collect {
+            it?.let {
+                initializeDefaultValues()
             }
         }
     }

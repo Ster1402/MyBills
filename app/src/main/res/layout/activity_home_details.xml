@@ -22,17 +22,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/baseline_arrow_back_24" />
+                android:contentDescription="@string/back_button"
+                tools:srcCompat="@drawable/angle_left" />
 
             <TextView
                 android:id="@+id/fragment_homedetails_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/title_text_bills"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/fragment_homedetails_logo"
@@ -40,7 +41,7 @@
                 android:layout_height="47dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/logo"
-                android:layout_marginLeft="90dp"/>
+                android:layout_marginStart="90dp"/>
         </LinearLayout>
         <TextView
             android:id="@+id/fragment_homedetail_bill_title"
@@ -72,7 +73,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

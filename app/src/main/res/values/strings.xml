@@ -103,4 +103,5 @@
     <string name="caretaker_create_home_label">Create home</string>
     <string name="caretaker_create_bill_label">Create bill</string>
     <string name="caretaker_send_message_label">Publish home news</string>
+    <string name="back_button">Back button</string>
 </resources>

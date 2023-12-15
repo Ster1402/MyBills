@@ -49,6 +49,7 @@
                 app:layout_constraintStart_toStartOf="@id/fragment_settings_title_name"
                 app:layout_constraintTop_toBottomOf="@id/fragment_settings_title_name"
                 app:srcCompat="@drawable/zig_zag_decor"
+                android:importantForAccessibility="no"
                 app:tint="@color/red" />
 
             <TextView
@@ -102,6 +103,7 @@
                 style="@style/InputText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:layout_marginEnd="@dimen/spacing_small"
                 app:boxCornerRadiusBottomEnd="@dimen/input_layout_box_corner_radius"
                 app:boxCornerRadiusBottomStart="@dimen/input_layout_box_corner_radius"
@@ -274,6 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/settings_icon"
+                android:importantForAccessibility="no"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_title_username"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fragment_settings_title_name"
@@ -355,6 +358,7 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical|start"
                         android:src="@drawable/home"
+                        android:importantForAccessibility="no"
                         app:tint="@color/blue" />
 
                     <TextView
@@ -392,6 +396,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/fragment_settings_caretaker_card_create_home"
                 app:strokeColor="@color/blue"
+                app:rippleColor="@color/light_gray"
                 app:strokeWidth="1dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -405,6 +410,7 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical|start"
                         app:srcCompat="@drawable/bill"
+                        android:importantForAccessibility="no"
                         app:tint="@color/white" />
 
                     <TextView

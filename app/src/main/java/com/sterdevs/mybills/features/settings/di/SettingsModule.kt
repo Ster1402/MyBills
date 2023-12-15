@@ -1,5 +1,7 @@
 package com.sterdevs.mybills.features.settings.di
 
+import com.sterdevs.mybills.core.domain.repository.UserRepository
+import com.sterdevs.mybills.core.domain.services.PasswordHashService
 import com.sterdevs.mybills.features.settings.domain.use_cases.SettingsUseCases
 import com.sterdevs.mybills.features.settings.domain.use_cases.UpdateUserUseCase
 import dagger.Module
@@ -14,9 +16,9 @@ class SettingsModule {
 
     @Provides
     @ViewModelScoped
-    fun providesSettingsUseCases() : SettingsUseCases{
+    fun providesSettingsUseCases(userRepository: UserRepository, passwordHashService: PasswordHashService) : SettingsUseCases{
         return SettingsUseCases(
-            updateUserUseCase = UpdateUserUseCase()
+            updateUserUseCase = UpdateUserUseCase(userRepository, passwordHashService)
         )
     }
 }

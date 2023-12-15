@@ -17,6 +17,8 @@ import com.google.android.material.textfield.TextInputLayout
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.ui.events.validations.ValidationEvent
 import com.sterdevs.mybills.core.ui.events.validations.ValidationEventListener
+import com.sterdevs.mybills.core.ui.states.AppGlobalState
+import com.sterdevs.mybills.core.ui.states.AppGlobalStateObserver
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentSettingsBinding
 import com.sterdevs.mybills.features.settings.ui.events.SettingsEvent
@@ -26,7 +28,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SettingsFragment : Fragment(), ScreenUtils, ValidationEventListener {
+class SettingsFragment : Fragment(), ScreenUtils, ValidationEventListener, AppGlobalStateObserver {
     private lateinit var binding: FragmentSettingsBinding
     private val viewModel by viewModels<SettingsViewModel>()
 
@@ -89,7 +91,7 @@ class SettingsFragment : Fragment(), ScreenUtils, ValidationEventListener {
         nameInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.onEvent(SettingsEvent.NameChanged(text.toString().trim()))
         }
-        usernameInputLayout.editText?.doOnTextChanged{ text, _, _, _ ->
+        usernameInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.onEvent(SettingsEvent.UsernameChanged(text.toString().trim()))
         }
         phoneNumberInputLayout.editText?.doOnTextChanged { text, _, _, _ ->
@@ -135,23 +137,24 @@ class SettingsFragment : Fragment(), ScreenUtils, ValidationEventListener {
                     }
                 }
 
+                launch {
+                    observeUserStateChanged()
+                }
+
             }
         }
     }
 
     override fun handleValidationEvent(event: ValidationEvent?) {
-        when(event) {
+        when (event) {
             is ValidationEvent.Failed -> {
                 context?.let {
                     MaterialAlertDialogBuilder(it)
                         .setTitle(resources.getString(R.string.settings))
                         .setMessage(event.reason)
-                        .setNeutralButton(resources.getString(R.string.cancel)) { _, _ ->
-                            // Respond to neutral button press
-                        }
-                        .setPositiveButton(resources.getString(R.string.try_again)) { _, _ ->
+                        .setPositiveButton(resources.getString(R.string.ok)) { _, _ ->
                             // Respond to positive button press
-                            viewModel.onEvent(SettingsEvent.PersonalInformationSubmit)
+//                            viewModel.onEvent(SettingsEvent.PersonalInformationSubmit)
                         }
                         .show()
                 }
@@ -162,10 +165,29 @@ class SettingsFragment : Fragment(), ScreenUtils, ValidationEventListener {
             }
 
             is ValidationEvent.Success -> {
-
+                context?.let {
+                    MaterialAlertDialogBuilder(it)
+                        .setTitle(resources.getString(R.string.settings))
+                        .setMessage("Information's has been successfully updated 🔥.")
+                        .setPositiveButton(resources.getString(R.string.ok)) { _, _ ->
+                        }
+                        .show()
+                }
             }
 
             else -> {}
+        }
+
+        oldPasswordInputLayout.editText?.setText("")
+        newPasswordInputLayout.editText?.setText("")
+        repeatedPasswordInputLayout.editText?.setText("")
+    }
+
+    override suspend fun observeUserStateChanged() {
+        AppGlobalState.userState.collect {
+            it?.let {
+                initializeDefaultValues()
+            }
         }
     }
 }
