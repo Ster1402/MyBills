@@ -41,7 +41,7 @@ class BillsListAdapters(private val clickListener: BillItemClickListener) :
 
             binding.viewItemPayButton.setOnClickListener {
                 MaterialAlertDialogBuilder(itemView.context)
-                    .setTitle("Show more")
+                    .setTitle("Pay bill")
                     .setMessage("This feature is not yet available")
                     .setNeutralButton("Cancel") { _, _ ->
                         // Respond to neutral button press
