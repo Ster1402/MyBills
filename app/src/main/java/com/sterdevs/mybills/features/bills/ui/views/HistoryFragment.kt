@@ -13,34 +13,41 @@ import com.sterdevs.mybills.features.bills.ui.adapters.BillsListAdapters
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HistoryFragment : Fragment(), ScreenUtils {
+class HistoryFragment : Fragment(), ScreenUtils, BillsListAdapters.BillItemClickListener {
     private lateinit var binding: FragmentHistoryBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var billAdapter: BillsListAdapters
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
         getViews()
+        initializeDefaultValues()
         addViewsEventsListeners()
         return binding.root
     }
 
     private fun setupRecyclerView() {
-        billAdapter = BillsListAdapters()
-        recyclerView = binding.card
+        billAdapter = BillsListAdapters(this)
         recyclerView.adapter = billAdapter
-
     }
     override fun getViews() {
-        setupRecyclerView()
-        //
+        recyclerView = binding.card
     }
     override fun initializeDefaultValues() {
-        //
+        setupRecyclerView()
     }
     override fun addViewsEventsListeners() {
         //
+    }
+
+    override fun onShowMoreClicked(position: Int) {
+
+    }
+
+    override fun onPayClicked(position: Int) {
+
     }
 }

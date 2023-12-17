@@ -1,21 +1,20 @@
 package com.sterdevs.mybills.features.news.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.databinding.ViewItemMessageBinding
 import com.sterdevs.mybills.features.news.domain.models.NewItem
 
-class NewListViewAdapter
-    (private val childRecyclerViewId: Int,
-     private val onChildItemClickListener: OnChildItemClickListener)
-    : RecyclerView.Adapter<NewListViewAdapter.NewViewHolder>() {
-    private val infomessages: MutableList<NewItem> = generateNewItems()
+class MessageListAdapter
+    (
+    private val childRecyclerViewId: Int,
+    private val onChildItemClickListener: OnChildItemClickListener
+) : RecyclerView.Adapter<MessageListAdapter.NewViewHolder>() {
+    private val infoMessages: MutableList<NewItem> = generateNewItems()
 
     interface OnChildItemClickListener {
-        abstract val childRecyclerViewId: Int
-
+        val childRecyclerViewId: Int
         fun onChildItemClick(childRecyclerViewId: Int)
     }
 
@@ -26,14 +25,15 @@ class NewListViewAdapter
             itemView.setOnClickListener {
                 val childItems = adapterPosition
                 if (childItems != RecyclerView.NO_POSITION) {
-                    val infosms = infomessages[childItems]
+                    infoMessages[childItems]
                     onChildItemClickListener.onChildItemClick(childRecyclerViewId)
-                   // binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
+                    // binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
                 }
             }
         }
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewViewHolder {
         val binding =
             ViewItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -41,10 +41,10 @@ class NewListViewAdapter
 
     }
 
-    override fun getItemCount(): Int = infomessages.size
+    override fun getItemCount(): Int = infoMessages.size
 
     override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
-        val infosms = infomessages[position]
+        val infosms = infoMessages[position]
         holder.binding.viewItemMessageSender.text = infosms.role
         holder.binding.viewItemMessageTime.text = infosms.time
         holder.binding.viewItemMessageText.text = infosms.messages

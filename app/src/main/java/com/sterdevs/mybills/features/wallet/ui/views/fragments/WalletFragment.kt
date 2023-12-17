@@ -1,6 +1,5 @@
 package com.sterdevs.mybills.features.wallet.ui.views.fragments
 
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -63,22 +62,23 @@ class WalletFragment : Fragment(), ScreenUtils, WalletListAdapter.WalletItemClic
 
     override fun addViewsEventsListeners() {
         buttonAddWallet.setOnClickListener {
-            showBottomSheet(ChooseOperatorFragment())
+            showBottomSheet(AddNewWalletFragment())
         }
     }
+
     private fun showDeleteConfirmationDialog(context: Context, position: Int) {
         MaterialAlertDialogBuilder(context)
             .setTitle(getString(R.string.modal_title))
             .setMessage(getString(R.string.modal_message))
             .setPositiveButton(resources.getString(R.string.ok)) { dialog, _ ->
-                Toast.makeText(context, "Élément supprimé!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Coming soon", Toast.LENGTH_SHORT).show()
                 // TODO: Ajoutez votre logique de suppression ici
 
                 // Fermez la boîte de dialogue
                 dialog.dismiss()
             }
             .setNegativeButton(resources.getString(R.string.cancel)) { dialog, _ ->
-                Toast.makeText(context, "Suppression annulée", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Coming soon", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
             .show()

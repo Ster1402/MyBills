@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentNewsBinding
-import com.sterdevs.mybills.features.news.domain.models.NewItem
 import com.sterdevs.mybills.features.news.ui.adapters.NewListAdapter
-import com.sterdevs.mybills.features.news.ui.adapters.NewListViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

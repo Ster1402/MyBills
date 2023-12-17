@@ -69,7 +69,7 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Douala, Pk19 entrée Madi",
                 false,
                 0,
-                "Batiment A",
+                "",
                 caretakerId = 1,
 
             )
@@ -83,54 +83,6 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
 
                 true,
                 5,
-                "Batiment A",
-                caretakerId = 1
-            )
-        )
-        items.add(
-            Home(
-                3,
-                "Big Ben City",
-                "@big-ben-city",
-                "Douala, Pk19 entrée Madi",
-                true,
-                10,
-                "Batiment B",
-                caretakerId = 1
-            )
-        )
-        items.add(
-            Home(
-                4,
-                "Chicago City",
-                "@chicago-city",
-                "Douala, Pk17 entrée gendarmerie",
-                false,
-                0,
-                "Batiment A",
-                caretakerId = 1
-            )
-        )
-        items.add(
-            Home(
-                5,
-                "Big Ben City",
-                "@big-ben-city",
-                "Douala, Pk19 entrée Madi",
-                true,
-                3,
-                "Batiment A",
-                caretakerId = 1
-            )
-        )
-        items.add(
-            Home(
-                6,
-                "Chicago City",
-                "@chicago-city",
-                "Douala, Pk17 entrée gendarmerie",
-                true,
-                2,
                 "Batiment A",
                 caretakerId = 1
             )

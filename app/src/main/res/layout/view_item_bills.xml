@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view_item_bill_txt_deadline_date" />
 
         <TextView
-            android:id="@+id/view_item_bill_txt_price"
+            android:id="@+id/view_item_bill_text_price"
             style="@style/CardPriceTextUnpaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,9 +85,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_total_cost"
-            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_text_price"
             app:layout_constraintStart_toStartOf="@+id/view_item_bill_txt_type"
-            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_price" />
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_text_price" />
 
         <ImageView
             android:id="@+id/view_item_bill_icon_type"
@@ -96,9 +96,9 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:contentDescription="@string/title_bills_type_water"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_txt_price"
-            app:layout_constraintStart_toEndOf="@+id/view_item_bill_txt_price"
-            app:layout_constraintTop_toTopOf="@+id/view_item_bill_txt_price"
+            app:layout_constraintBottom_toBottomOf="@+id/view_item_bill_text_price"
+            app:layout_constraintStart_toEndOf="@+id/view_item_bill_text_price"
+            app:layout_constraintTop_toTopOf="@+id/view_item_bill_text_price"
             app:layout_constraintVertical_bias="0.38"
             app:srcCompat="@drawable/water" />
 
@@ -145,7 +145,7 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:text="@string/label_deadline"
             app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_txt_price" />
+            app:layout_constraintTop_toBottomOf="@+id/view_item_bill_text_price" />
 
         <TextView
             android:id="@+id/view_item_bill_txt_deadline_date"
@@ -171,25 +171,26 @@
             app:srcCompat="@drawable/warning_alarm" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/view_item_pay_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:backgroundTint="@color/green"
-            android:text="Pay now"
+            android:text="@string/pay_now"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/view_bill_item_show_more_button"
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_normal"
+            android:background="@color/white"
             android:text="Show more"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintTop_toTopOf="@+id/button" />
+            app:layout_constraintEnd_toStartOf="@+id/view_item_pay_button"
+            app:layout_constraintTop_toTopOf="@+id/view_item_pay_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -5,23 +5,56 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.domain.models.enums.BillsTags
 import com.sterdevs.mybills.core.ui.adapters.CarouselImagesAdapter
 import com.sterdevs.mybills.databinding.ViewItemBillsBinding
 import com.sterdevs.mybills.features.bills.domain.models.Bill
-import com.sterdevs.mybills.features.news.domain.models.New
 
-class BillsListAdapters() :
+class BillsListAdapters(private val clickListener: BillItemClickListener) :
     RecyclerView.Adapter<BillsListAdapters.BillViewHolder>() {
 
+    // TODO: Remove this and take the list as parameter
     private val bills: MutableList<Bill> = generateBills()
+
+    interface BillItemClickListener {
+        fun onShowMoreClicked(position: Int)
+        fun onPayClicked(position: Int)
+    }
 
     inner class BillViewHolder(val binding: ViewItemBillsBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.viewBillItemShowMoreButton.setOnClickListener {
+                MaterialAlertDialogBuilder(itemView.context)
+                    .setTitle("Show more")
+                    .setMessage("This feature is not yet available")
+                    .setNeutralButton("Cancel") { _, _ ->
+                        // Respond to neutral button press
+                    }
+                    .setPositiveButton("OK") { _, _ ->
+                        // TODO : Respond to positive button press
+                    }
+                    .show()
+            }
+
+            binding.viewItemPayButton.setOnClickListener {
+                MaterialAlertDialogBuilder(itemView.context)
+                    .setTitle("Show more")
+                    .setMessage("This feature is not yet available")
+                    .setNeutralButton("Cancel") { _, _ ->
+                        // Respond to neutral button press
+                    }
+                    .setPositiveButton("OK") { _, _ ->
+                        // TODO : Respond to positive button press
+                    }
+                    .show()
+            }
+        }
     }
 
-    fun generateBills(): MutableList<Bill> {
+    private fun generateBills(): MutableList<Bill> {
         val items = mutableListOf<Bill>()
         val electricityBill = Bill(
             id = 1,
@@ -45,7 +78,8 @@ class BillsListAdapters() :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillViewHolder {
-        val binding = ViewItemBillsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ViewItemBillsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BillViewHolder(binding)
     }
 
@@ -68,7 +102,7 @@ class BillsListAdapters() :
                 viewItemBillsCarouselDivider.visibility = View.INVISIBLE
             }
 
-            viewItemBillTxtPrice.text = buildString {
+            viewItemBillTextPrice.text = buildString {
                 append(bill.cost.toString())
                 append(" XFA")
             }
@@ -78,10 +112,12 @@ class BillsListAdapters() :
                     viewItemBillTxtType.setText(R.string.title_bills_type_electricity)
                     viewItemBillIconType.setImageResource(R.drawable.flash_decor)
                 }
+
                 BillsTags.WATER.value -> {
                     viewItemBillTxtType.setText(R.string.title_bills_type_water)
                     viewItemBillIconType.setImageResource(R.drawable.water)
                 }
+
                 else -> {
                     viewItemBillTxtType.setText(R.string.title_bills_type_rent)
                     viewItemBillIconType.visibility = View.GONE

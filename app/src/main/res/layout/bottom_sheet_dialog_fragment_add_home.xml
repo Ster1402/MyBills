@@ -68,7 +68,7 @@
             android:layout_marginTop="@dimen/spacing_normal" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/view_item_pay_button"
             style="@style/PrimaryButton"
             android:layout_gravity="center|top"
             android:layout_marginTop="@dimen/spacing_normal"

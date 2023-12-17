@@ -3,25 +3,37 @@ package com.sterdevs.mybills.features.news.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.databinding.ViewItemHomeNewsBinding
 import com.sterdevs.mybills.features.news.domain.models.New
 
 class NewListAdapter(override val childRecyclerViewId: Int) :
     RecyclerView.Adapter<NewListAdapter.NewListViewHolder>(),
-    NewListViewAdapter.OnChildItemClickListener {
-    private val new: MutableList<New> = generateNews()
+    MessageListAdapter.OnChildItemClickListener {
+    private val messages: MutableList<New> = generateNews()
     private val childRecyclerViewButtonVisibility: MutableMap<Int, Boolean> = mutableMapOf()
+
     inner class NewListViewHolder(val binding: ViewItemHomeNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            itemView.setOnClickListener {
+            itemView.setOnLongClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    val currentNews = new[position]
-                    binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
+                    if (binding.viewItemHomeNewsClearMessageButton.isVisible) {
+                        binding.viewItemHomeNewsClearMessageButton.visibility = View.GONE
+                        binding.checkBox.visibility = View.GONE
+                    } else {
+                        binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
+                        binding.checkBox.visibility = View.VISIBLE
+                    }
+
+                    binding.checkBox.isChecked =
+                        binding.viewItemHomeNewsClearMessageButton.isVisible
                 }
+
+                true
             }
         }
 
@@ -37,21 +49,13 @@ class NewListAdapter(override val childRecyclerViewId: Int) :
 
     }
 
-    override fun getItemCount(): Int = new.size
+    override fun getItemCount(): Int = messages.size
 
     override fun onBindViewHolder(holder: NewListAdapter.NewListViewHolder, position: Int) {
-        val newItem = new[position]
+        val newItem = messages[position]
         holder.binding.viewItemHomeNewsTitleText.text = newItem.cityName
-        val newListViewAdapter = NewListViewAdapter(childRecyclerViewId,this)
-        holder.binding.homeNewsRecyclerView.adapter = newListViewAdapter
-
-        val isButtonVisible = childRecyclerViewButtonVisibility[childRecyclerViewId] ?: false
-
-        if (isButtonVisible){
-            holder.binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
-        } else {
-            holder.binding.viewItemHomeNewsClearMessageButton.visibility = View.GONE
-        }
+        val messageListAdapter = MessageListAdapter(childRecyclerViewId, this)
+        holder.binding.homeNewsRecyclerView.adapter = messageListAdapter
     }
 
     fun generateNews(): MutableList<New> {
@@ -67,6 +71,6 @@ class NewListAdapter(override val childRecyclerViewId: Int) :
 
     override fun onChildItemClick(childRecyclerViewId: Int) {
         childRecyclerViewButtonVisibility[childRecyclerViewId] = true
-        notifyDataSetChanged()
+        notifyItemChanged(childRecyclerViewId)
     }
 }

@@ -5,9 +5,9 @@
     android:id="@+id/home_news_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:cardBackgroundColor="@color/white"
     app:contentPadding="@dimen/spacing_small"
     app:strokeWidth="0dp">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -50,7 +50,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_normal"
-            android:layout_marginBottom="@dimen/spacing_tiny"
             android:background="@android:drawable/ic_menu_send"
             android:contentDescription="@string/action_delete_news"
             android:pointerIcon="hand"
@@ -84,6 +83,17 @@
             android:text="@string/show_more"
             app:layout_constraintLeft_toRightOf="@id/view_item_home_news_cardDivider_vertical"
             app:layout_constraintTop_toBottomOf="@id/home_news_recycler_view" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:clickable="false"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

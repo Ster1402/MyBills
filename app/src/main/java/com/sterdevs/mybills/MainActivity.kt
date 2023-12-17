@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.databinding.ActivityMainBinding
@@ -25,7 +24,6 @@ import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.features.authentication.ui.views.activities.AuthenticationActivity
 import com.sterdevs.mybills.features.home.ui.views.fragments.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -36,7 +34,7 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
     private lateinit var usernameTextView: TextView
     private lateinit var navigationDrawerView: NavigationView
     private lateinit var headerDrawerView: View
-    private lateinit var drawerUserFullname: TextView
+    private lateinit var drawerUserFullName: TextView
     private lateinit var drawerUsername: TextView
 
     // Bottom navigation
@@ -58,8 +56,7 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         subscribeToObservables()
         //Add Badges
         setupBadge(bottomNavigationView, R.id.bottom_newspaper, true, 5)
-        setupBadge(bottomNavigationView, R.id.bottom_history, true, 2)
-        setupBadge(bottomNavigationView, R.id.bottom_home, true, 20)
+        setupBadge(bottomNavigationView, R.id.bottom_home, true, 3)
     }
 
     private fun openDrawer() {
@@ -114,7 +111,7 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         usernameTextView = binding.activityMainUsername
         navigationDrawerView = binding.navigationView
         headerDrawerView = navigationDrawerView.getHeaderView(0)
-        drawerUserFullname = headerDrawerView.findViewById(R.id.drawer_user_fullname)
+        drawerUserFullName = headerDrawerView.findViewById(R.id.drawer_user_fullname)
         drawerUsername = headerDrawerView.findViewById(R.id.drawer_username)
         toolbarLogoButton = binding.logo
         bottomNavigationView = binding.bottomNavigation
@@ -122,7 +119,7 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
 
     override fun initializeDefaultValues() {
         usernameTextView.text = AppGlobalState.userState.value?.username ?: "Unknown"
-        drawerUserFullname.text = AppGlobalState.userState.value?.name ?: "Unknown"
+        drawerUserFullName.text = AppGlobalState.userState.value?.name ?: "Unknown"
         drawerUsername.text = AppGlobalState.userState.value?.username ?: "Unknown"
     }
 

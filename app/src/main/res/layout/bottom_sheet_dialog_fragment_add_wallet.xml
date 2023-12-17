@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/dialog_background"
-    tools:context=".features.wallet.ui.views.fragments.EditWalletFragment">
+    tools:context=".features.wallet.ui.views.fragments.AddNewWalletFragment">
 
     <com.google.android.material.divider.MaterialDivider
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_top_divider"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_top_divider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,33 +17,33 @@
         android:layout_height="2dp" />
 
     <TextView
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_title"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_edit_wallet_top_divider"
+        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_add_wallet_top_divider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/spacing_normal"
         android:fontFamily="@font/poppins_semibold"
-        android:text="@string/title_text_wallet_edit"
+        android:text="@string/title_text_wallet_add"
         android:textAlignment="center"
         android:textSize="@dimen/font_large" />
 
     <TextView
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_label"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_edit_wallet_title"
+        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_add_wallet_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:fontFamily="@font/poppins_medium"
-        android:text="@string/please_enter_the_new_information"
+        android:text="@string/please_enter_the_wallet_information"
         android:textAlignment="center"
         android:textSize="@dimen/font_small" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_username_input_layout"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_username_input_layout"
         style="@style/InputText"
         android:layout_marginTop="@dimen/spacing_normal"
         android:hint="@string/label_input_Name_Surname"
@@ -53,7 +53,7 @@
         app:boxCornerRadiusTopStart="@dimen/input_layout_box_corner_radius"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_edit_wallet_label">
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_add_wallet_label">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -62,12 +62,12 @@
             android:paddingEnd="@dimen/input_padding" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_phone_number_input_layout"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_phone_number_input_layout"
         style="@style/InputText"
         android:layout_marginTop="@dimen/spacing_normal"
-        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_edit_wallet_username_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_fragment_add_wallet_username_input_layout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:hint="@string/label_input_phone_number"
@@ -87,21 +87,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.divider.MaterialDivider
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_bottom_divider"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_bottom_divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/spacing_normal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_edit_wallet_phone_number_input_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_add_wallet_phone_number_input_layout" />
 
     <Button
-        android:id="@+id/bottom_sheet_fragment_edit_wallet_confirm_button"
+        android:id="@+id/bottom_sheet_fragment_add_wallet_confirm_button"
         style="@style/PrimaryButton"
         android:layout_marginTop="@dimen/spacing_small"
-        android:text="@string/button_text_update"
+        android:text="@string/button_text_confirm"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_edit_wallet_bottom_divider" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_fragment_add_wallet_bottom_divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

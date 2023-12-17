@@ -107,4 +107,11 @@
     <string name="caretaker_create_bill_label">Create bill</string>
     <string name="caretaker_send_message_label">Publish home news</string>
     <string name="back_button">Back button</string>
+    <string name="please_enter_the_new_information">Please enter the new information</string>
+    <string name="button_text_update">Update</string>
+    <string name="logout_label">Want to leave ?</string>
+    <string name="title_text_wallet_add">Add a new wallet</string>
+    <string name="please_enter_the_wallet_information">Please enter the information\'s</string>
+    <string name="pay_now">Pay now</string>
+    <string name="coming_soon">Coming soon</string>
 </resources>
