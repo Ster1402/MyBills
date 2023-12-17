@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    Pour gérer les bordures-->
+    <stroke
+        android:dashGap="10dp"
+        android:dashWidth="200dp"
+        android:width="2dp"
+        android:color="@color/royal_blue" />
+<!--    Pour arrondir les bordures-->
+    <corners
+        android:radius="10dp" />
+</shape>

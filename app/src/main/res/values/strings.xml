@@ -1,3 +1,117 @@
 <resources>
     <string name="app_name">My Bill\'s</string>
+    <string name="title_text_login">Connexion</string>
+    <string name="button_text_confirm">Confirm</string>
+    <string name="title_text_register">Register</string>
+    <string name="title_text_add_home">Join a Home</string>
+    <string name="title_text_home">My Home\'s</string>
+    <string name="title_text_wallet">Wallet</string>
+    <string name="title_text_news">News</string>
+    <string name="title_text_history">History</string>
+    <string name="title_text_settings">Settings</string>
+    <string name="title_text_profile">Profile</string>
+    <string name="title_text_bills">Bill\'s</string>
+    <string name="title_text_add_home_unique_id">Enter the home unique ID</string>
+    <string name="title_text_wallet_edit">Edit wallet</string>
+    <string name="title_text_wallet_choose_operator">Choose Operator</string>
+    <string name="label_input_phone_number">Phone Number</string>
+    <string name="label_recycle_view_payment_method">Payment Method</string>
+    <string name="label_payment_method">Orange Money-OM</string>
+    <string name="label_number">693563166</string>
+    <string name="label_input_username">Username</string>
+    <string name="label_input_password">Password</string>
+    <string name="label_input_home_id">Enter the Home Id</string>
+    <string name="label_input_Name_Surname">Name And Surname</string>
+    <string name="label_input_choose_wallet">Choose your wallet</string>
+    <string name="label_input_Amount">Amount :  $ %1$s</string>
+    <string name="question_message_login">You already have an account ?</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">Dummy</string>
+    <string name="title_activity_auth">AuthActivity</string>
+    <string name="title_current_bill">My Current Bill\'s</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+
+    <string name="error_invalid_username">Not a valid username</string>
+    <string name="error_invalid_password">Password must be >8 characters</string>
+    <string name="error_login_failed">Login failed</string>
+    <string name="error_register_failed">The user with the corresponding username already exists.</string>
+
+    <string name="citation_message">Stressless Bill\'s</string>
+    <string name="quote_left"><![CDATA[<<]]></string>
+    <string name="quote_right"><![CDATA[>>]]></string>
+    <string name="question_message_register">Already have an account ?</string>
+    <string name="button_text_login">Login</string>
+    <string name="label_input_password_confirmation">Confirm Password</string>
+    <string name="country_code_cameroon">+237</string>
+    <string name="home">My Home\'s</string>
+    <string name="wallet">Wallet</string>
+    <string name="button_add_new_payment">Add new payment</string>
+    <string name="user">User: \@Jordy</string>
+    <string name="user_name">Sterdevs</string>
+    <string name="home_name">Big Ben City</string>
+    <string name="home_name_ref">\@big_ben_city</string>
+    <string name="home_name_location">Douala, Pk19 entrée Madi </string>
+    <!---->
+    <string-array name="spinner_options">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
+    <string name="label_total_cost">Total :</string>
+    <string name="price">1.000 XFA</string>
+    <string name="title_bills_type_water">Water\'s Bill</string>
+    <string name="title_bills_type_electricity">Electricity\'s Bill</string>
+    <string name="title_bills_type_rent">Rent</string>
+    <string name="date_creation">Issue on : %1s</string>
+    <string name="label_date_creation">Issue on :</string>
+    <string name="label_deadline">Please pay before :</string>
+    <string name="sample_date_deadline">December 17, 2023</string>
+    <string name="sample_issued_date">November 15th, 2023</string>
+    <string name="label_input_name">Name and Surname</string>
+
+    <string name="decline">Decline</string>
+    <string name="try_again">Try again</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="ok">OK</string>
+
+    <string name="message_confirm_delete">Please confirm that you really want to delete this item.</string>
+    <string name="add_home">Add home</string>
+    <string name="label_owner">Owner</string>
+    <string name="label_home_id">Home unique ID</string>
+    <string name="label_creator">Creator</string>
+    <string name="unpaid_bills">Unpaid bills</string>
+    <string name="action_delete_news">Delete home news</string>
+    <string name="show_more">Show more</string>
+    <string name="dummy_text_big_ben_city">Big Ben City</string>
+    <string name="modal_title">Confirmation</string>
+    <string name="modal_message">Voulez-vous vraiment supprimer cet élément?</string>
+    <string name="label_userid">"User ID : "</string>
+    <string name="logout">Logout</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="about_us">About Us</string>
+    <string name="personal">Personal</string>
+    <string name="label_input_old_password">Old password</string>
+    <string name="label_input_new_password">New password</string>
+    <string name="update">Update</string>
+    <string name="caretaker">Caretaker tools</string>
+    <string name="caretaker_create_home_label">Create home</string>
+    <string name="caretaker_create_bill_label">Create bill</string>
+    <string name="caretaker_send_message_label">Publish home news</string>
+    <string name="back_button">Back button</string>
+    <string name="please_enter_the_new_information">Please enter the new information</string>
+    <string name="button_text_update">Update</string>
+    <string name="logout_label">Want to leave ?</string>
+    <string name="title_text_wallet_add">Add a new wallet</string>
+    <string name="please_enter_the_wallet_information">Please enter the information\'s</string>
+    <string name="pay_now">Pay now</string>
+    <string name="coming_soon">Coming soon</string>
 </resources>

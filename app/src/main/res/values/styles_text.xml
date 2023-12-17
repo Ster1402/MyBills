@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleText">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TitleCardText" parent="TitleText">
+        <item name="android:background">@drawable/background_title</item>
+        <item name="android:layout_width">@dimen/title_card_width</item>
+        <item name="android:layout_height">@dimen/title_card_height</item>
+    </style>
+
+    <style name="ToolbarTitleText">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="ContentText">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="InfoText" parent="ContentText">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="ButtonText" parent="@style/Widget.Material3.Button.TextButton">
+        <item name="android:fontFamily">@font/nunito_medium</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textColor">@color/royal_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Connexion / Register -->
+    <style name="AuthTitleText" parent="TitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_huge</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/royal_blue</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+    <!-- Connexion / Register -->
+    <style name="BottomSheetTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_huge</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+    </style>
+
+    <style name="FancyText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_larger</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="CardPriceText" parent="TitleText">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="CardPriceTextUnpaid" parent="CardPriceText">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="CardPriceTextPaid" parent="CardPriceText">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="CardTitleText" parent="TitleText">
+        <item name="android:textColor">@color/royal_blue</item>
+        <item name="android:textSize">@dimen/font_xlarge</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+
+    <style name="CardDateText" parent="ContentText">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CardNewsTitleText" parent="CardTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/light_blue</item>
+    </style>
+
+    <style name="SmallTitleText">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:paddingStart">@dimen/spacing_tiny</item>
+        <item name="android:paddingEnd">@dimen/spacing_tiny</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+</resources>

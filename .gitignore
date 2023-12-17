@@ -2,8 +2,14 @@
 .gradle/
 build/
 
+# Build
+app/build/
+app/debug/
+app/release/
+
 # Local configuration file (sdk path, etc)
 local.properties
+gradle/wrapper/gradle-wrapper.properties
 
 # Log/OS Files
 *.log

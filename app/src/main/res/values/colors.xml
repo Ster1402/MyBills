@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="light_gray">#E5E5E5</color>
+    <color name="dark_gray">#A7A8A8</color>
+    <color name="black">#000000</color>
+    <color name="gray">#707070</color>
+
+    <color name="royal_blue">#1E3D7E</color>
+    <color name="light_blue">#71B9E1</color>
+    <color name="lighter_blue">#EAFAFF</color>
+    <color name="blue">#0C79BE</color>
+
+    <color name="red">#FF5349</color>
+    <color name="light_red">#FB0000</color>
+    <color name="green">#B2D5BA</color>
+    <color name="black_overlay">#66000000</color>
+</resources>
