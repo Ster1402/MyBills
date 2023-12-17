@@ -4,10 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.sterdevs.mybills.databinding.ActivityMainBinding
-import com.sterdevs.mybills.features.home.ui.fragments.HistoryFragment
+import com.sterdevs.mybills.features.bills.ui.views.HistoryFragment
 import com.sterdevs.mybills.features.news.ui.views.fragments.NewsFragment
 import com.sterdevs.mybills.features.settings.ui.views.fragments.SettingsFragment
 import com.sterdevs.mybills.features.wallet.ui.views.fragments.WalletFragment
@@ -55,10 +56,25 @@ class MainActivity : AppCompatActivity(), ScreenUtils, AppGlobalStateObserver {
         addViewsEventsListeners()
         // Add observables
         subscribeToObservables()
+        //Add Badges
+        setupBadge(bottomNavigationView, R.id.bottom_newspaper, true, 5)
+        setupBadge(bottomNavigationView, R.id.bottom_history, true, 2)
+        setupBadge(bottomNavigationView, R.id.bottom_home, true, 20)
     }
 
     private fun openDrawer() {
         binding.drawerLayout.openDrawer(GravityCompat.START)
+    }
+
+    private fun setupBadge(
+        bottomNavigationView: BottomNavigationView,
+        itemId: Int,
+        isVisible: Boolean = false,
+        number: Int = 0
+    ) {
+        val badge = bottomNavigationView.getOrCreateBadge(itemId)
+        badge.isVisible = isVisible
+        badge.number = number
     }
 
     private fun replaceFragment(fragment: Fragment) {

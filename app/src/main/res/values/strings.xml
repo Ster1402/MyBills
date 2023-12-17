@@ -28,6 +28,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">Dummy</string>
     <string name="title_activity_auth">AuthActivity</string>
+    <string name="title_current_bill">My Current Bill\'s</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -89,6 +90,8 @@
     <string name="action_delete_news">Delete home news</string>
     <string name="show_more">Show more</string>
     <string name="dummy_text_big_ben_city">Big Ben City</string>
+    <string name="modal_title">Confirmation</string>
+    <string name="modal_message">Voulez-vous vraiment supprimer cet élément?</string>
     <string name="label_userid">"User ID : "</string>
     <string name="logout">Logout</string>
     <string name="edit_profile">Edit Profile</string>

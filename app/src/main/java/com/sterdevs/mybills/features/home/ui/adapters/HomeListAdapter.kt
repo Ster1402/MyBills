@@ -3,6 +3,7 @@ package com.sterdevs.mybills.features.home.ui.adapters
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.core.domain.models.Home
 import com.sterdevs.mybills.databinding.ViewItemHomeBinding
@@ -47,6 +48,14 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
         holder.binding.viewItemHomeSlug.text = home.slug
         holder.binding.viewItemHomeLocation.text = home.location
         holder.binding.viewItemHomeCaretaker.text = "Caretaker Name"
+        if (home.showBadge) {
+            holder.binding.viewItemHomeBadgeCard.isVisible = true
+            holder.binding.viewItemHomeUnpaidBillsCount.text = home.unpaidBillsCount.toString()
+        } else {
+            holder.binding.viewItemHomeBadgeCard.isVisible = false
+        }
+
+
     }
 
     fun generateHomeItems(): MutableList<Home> {
@@ -58,8 +67,11 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Big Ben City",
                 "@big-ben-city",
                 "Douala, Pk19 entrée Madi",
+                false,
+                0,
                 "Batiment A",
-                caretakerId = 1
+                caretakerId = 1,
+
             )
         )
         items.add(
@@ -68,6 +80,9 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Chicago City",
                 "@chicago-city",
                 "Douala, Pk17 entrée gendarmerie",
+
+                true,
+                5,
                 "Batiment A",
                 caretakerId = 1
             )
@@ -78,6 +93,8 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Big Ben City",
                 "@big-ben-city",
                 "Douala, Pk19 entrée Madi",
+                true,
+                10,
                 "Batiment B",
                 caretakerId = 1
             )
@@ -88,6 +105,8 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Chicago City",
                 "@chicago-city",
                 "Douala, Pk17 entrée gendarmerie",
+                false,
+                0,
                 "Batiment A",
                 caretakerId = 1
             )
@@ -98,6 +117,8 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Big Ben City",
                 "@big-ben-city",
                 "Douala, Pk19 entrée Madi",
+                true,
+                3,
                 "Batiment A",
                 caretakerId = 1
             )
@@ -108,6 +129,8 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.HomeViewHolder>() {
                 "Chicago City",
                 "@chicago-city",
                 "Douala, Pk17 entrée gendarmerie",
+                true,
+                2,
                 "Batiment A",
                 caretakerId = 1
             )

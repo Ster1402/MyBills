@@ -17,18 +17,21 @@
 
         <item
             android:id="@+id/nav_about"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/spacing_small"
             android:icon="@drawable/baseline_question_mark_24"
             android:title="@string/about_us" />
-    </group>
 
-    <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/baseline_logout_24"
-                android:title="@string/logout" />
-        </menu>
-    </item>
+        <item
+            android:title="@string/logout_label">
+            <menu>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:menuCategory="secondary"
+                    android:icon="@drawable/baseline_logout_24"
+                    android:title="@string/logout"/>
+            </menu>
+
+        </item>
+    </group>
 
 </menu>

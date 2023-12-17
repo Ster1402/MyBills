@@ -28,5 +28,4 @@ class CarouselImagesAdapter(var images: List<Int>) : RecyclerView.Adapter<Carous
         holder.run { image.setImageResource(images[position]) }
     }
 
-
 }

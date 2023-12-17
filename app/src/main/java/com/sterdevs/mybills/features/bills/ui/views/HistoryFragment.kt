@@ -1,4 +1,4 @@
-package com.sterdevs.mybills.features.news.ui.views.fragments
+package com.sterdevs.mybills.features.bills.ui.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,49 +7,40 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
-import com.sterdevs.mybills.databinding.FragmentNewsBinding
-import com.sterdevs.mybills.features.news.domain.models.NewItem
-import com.sterdevs.mybills.features.news.ui.adapters.NewListAdapter
-import com.sterdevs.mybills.features.news.ui.adapters.NewListViewAdapter
+import com.sterdevs.mybills.databinding.FragmentHistoryBinding
+import com.sterdevs.mybills.features.bills.domain.models.Bill
+import com.sterdevs.mybills.features.bills.ui.adapters.BillsListAdapters
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewsFragment : Fragment(), ScreenUtils {
-    private lateinit var binding:FragmentNewsBinding
+class HistoryFragment : Fragment(), ScreenUtils {
+    private lateinit var binding: FragmentHistoryBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var newAdapter: NewListAdapter
-
+    private lateinit var billAdapter: BillsListAdapters
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        binding = FragmentHistoryBinding.inflate(inflater, container, false)
         getViews()
         addViewsEventsListeners()
         return binding.root
     }
 
-    private fun setupRecyclerView(){
-        newAdapter = NewListAdapter(2)
-      //  newAdapter.setOnItemClickListener(this)
-        recyclerView = binding.homeNewsRecyclerView
-        recyclerView.adapter = newAdapter
+    private fun setupRecyclerView() {
+        billAdapter = BillsListAdapters()
+        recyclerView = binding.card
+        recyclerView.adapter = billAdapter
 
     }
     override fun getViews() {
         setupRecyclerView()
         //
     }
-
     override fun initializeDefaultValues() {
         //
     }
-
     override fun addViewsEventsListeners() {
         //
     }
-
-
-
-
 }

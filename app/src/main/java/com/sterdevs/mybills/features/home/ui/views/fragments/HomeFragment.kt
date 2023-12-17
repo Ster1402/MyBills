@@ -36,7 +36,7 @@ class HomeFragment : Fragment(), ScreenUtils {
 
     private fun setupRecyclerView() {
         homeAdapter = HomeListAdapter()
-        recyclerView = binding.fragmentHomeRecyclerview
+        recyclerView = binding.homeRecyclerview
         recyclerView.adapter = homeAdapter
     }
 

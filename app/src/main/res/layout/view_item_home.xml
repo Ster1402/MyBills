@@ -64,6 +64,7 @@
             app:layout_constraintStart_toEndOf="@+id/view_item_home_caretaker"
             app:layout_constraintTop_toTopOf="@+id/view_item_home_caretaker" />
 
+
         <TextView
             android:id="@+id/view_item_home_title"
             style="@style/CardTitleText"
@@ -130,16 +131,14 @@
             android:id="@+id/view_item_home_badge_card"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/badge_height"
-            android:layout_marginTop="@dimen/spacing_tiny"
             android:visibility="gone"
             app:cardBackgroundColor="@color/red"
             app:contentPaddingLeft="@dimen/spacing_small"
             app:contentPaddingRight="@dimen/spacing_small"
-            app:layout_constraintLeft_toLeftOf="@id/view_item_home_badge_label"
             app:layout_constraintRight_toRightOf="@id/view_item_home_badge_label"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeWidth="0dp"
-            tools:visibility="invisible">
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/view_item_home_unpaid_bills_count"

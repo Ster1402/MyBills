@@ -15,6 +15,10 @@ data class Home(
     val slug : String,
     val location: String = "",
 
+    //Badge
+    val showBadge: Boolean,
+    val unpaidBillsCount: Int,
+
     @ColumnInfo(typeAffinity = ColumnInfo.TEXT)
     val description: String = "",
 
@@ -26,3 +30,6 @@ data class Home(
     // Relationships
     val caretakerId : Int
 )
+
+
+
