@@ -111,7 +111,7 @@
             android:layout_marginStart="@dimen/spacing_small"
             style="@style/TitleText"
             android:textSize="@dimen/font_large"
-            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_small"
             android:text="@string/title_current_bill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_main_title_divider" />
@@ -144,23 +144,23 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height=".5dp"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:layout_marginStart="@dimen/spacing_large"
-            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginStart="@dimen/spacing_huge"
+            android:layout_marginEnd="@dimen/spacing_huge"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_item_home_badge_card" />
+            app:layout_constraintTop_toTopOf="@+id/current_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:paddingBottom="@dimen/spacing_tiny"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/divider"
             app:layout_constraintTop_toBottomOf="@+id/current_title"
-            tools:itemCount="1"
+            tools:itemCount="2"
             tools:listitem="@layout/view_item_bills" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

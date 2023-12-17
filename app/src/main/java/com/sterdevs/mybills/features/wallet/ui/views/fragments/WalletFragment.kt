@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.sterdevs.mybills.R
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentWalletBinding
 import com.sterdevs.mybills.features.wallet.ui.adapters.WalletListAdapter
@@ -65,22 +67,21 @@ class WalletFragment : Fragment(), ScreenUtils, WalletListAdapter.WalletItemClic
         }
     }
     private fun showDeleteConfirmationDialog(context: Context, position: Int) {
-        val alertDialogBuilder = AlertDialog.Builder(context)
-        alertDialogBuilder.setTitle("Confirmation")
-        alertDialogBuilder.setMessage("Voulez-vous vraiment supprimer cet élément?")
-        // Bouton de confirmation
-        alertDialogBuilder.setPositiveButton("Oui") { dialog, which ->
-            Toast.makeText(context, "Élément supprimé!", Toast.LENGTH_SHORT).show()
-            // TODO: Ajoutez votre logique de suppression ici
+        MaterialAlertDialogBuilder(context)
+            .setTitle(getString(R.string.modal_title))
+            .setMessage(getString(R.string.modal_message))
+            .setPositiveButton(resources.getString(R.string.ok)) { dialog, _ ->
+                Toast.makeText(context, "Élément supprimé!", Toast.LENGTH_SHORT).show()
+                // TODO: Ajoutez votre logique de suppression ici
 
-            // Fermez la boîte de dialogue
-            dialog.dismiss()
-        }
-        alertDialogBuilder.setNegativeButton("Non") { dialog, which ->
-            Toast.makeText(context, "Suppression annulée", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
-        }
-        alertDialogBuilder.create().show()
+                // Fermez la boîte de dialogue
+                dialog.dismiss()
+            }
+            .setNegativeButton(resources.getString(R.string.cancel)) { dialog, _ ->
+                Toast.makeText(context, "Suppression annulée", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            .show()
     }
 
 }

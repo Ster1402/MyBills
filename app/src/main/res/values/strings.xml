@@ -90,4 +90,6 @@
     <string name="action_delete_news">Delete home news</string>
     <string name="show_more">Show more</string>
     <string name="dummy_text_big_ben_city">Big Ben City</string>
+    <string name="modal_title">Confirmation</string>
+    <string name="modal_message">Voulez-vous vraiment supprimer cet élément?</string>
 </resources>
