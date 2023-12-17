@@ -12,16 +12,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
 
-    private lateinit var navController : NavController
-    private lateinit var binding : ActivityAuthenticationBinding
+    private lateinit var navController: NavController
+    private lateinit var binding: ActivityAuthenticationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // Show splashscreen
         Thread.sleep(3000)
-        installSplashScreen()
 
+        installSplashScreen()
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }

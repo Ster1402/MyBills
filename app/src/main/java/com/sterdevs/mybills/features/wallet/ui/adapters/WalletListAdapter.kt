@@ -18,11 +18,11 @@ class WalletListAdapter(private val clickListener: WalletItemClickListener)
 
     inner class PaymentMethodViewHolder(val binding: ItemWalletBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         init {
             binding.editOperatorButtonIcon.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    // Utilisez l'interface pour gérer les clics
                     clickListener.onEditClicked(position)
                 }
             }
@@ -30,7 +30,6 @@ class WalletListAdapter(private val clickListener: WalletItemClickListener)
             binding.deleteOperatorButtonIcon.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    // Utilisez l'interface pour gérer les clics
                     clickListener.onDeleteClicked(position)
                 }
             }

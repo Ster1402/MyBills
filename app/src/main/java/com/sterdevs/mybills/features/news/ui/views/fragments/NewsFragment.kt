@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.sterdevs.mybills.core.ui.utils.ScreenUtils
 import com.sterdevs.mybills.databinding.FragmentNewsBinding
+import com.sterdevs.mybills.features.news.domain.models.New
+import com.sterdevs.mybills.features.news.ui.adapters.NewListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewsFragment : Fragment(), ScreenUtils {
-    private lateinit var binding: FragmentNewsBinding
-    private lateinit var newsRecyclerView: RecyclerView
+class NewsFragment : Fragment(), ScreenUtils, NewListAdapter.OnItemClickListener {
+    private lateinit var binding:FragmentNewsBinding
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var newAdapter: NewListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +31,15 @@ class NewsFragment : Fragment(), ScreenUtils {
         return binding.root
     }
 
+    private fun setupRecyclerView(){
+        newAdapter = NewListAdapter()
+        newAdapter.setOnItemClickListener(this)
+        recyclerView = binding.homeNewsRecyclerView
+        recyclerView.adapter = newAdapter
+
+    }
     override fun getViews() {
+        setupRecyclerView()
         //
     }
 
@@ -38,5 +49,9 @@ class NewsFragment : Fragment(), ScreenUtils {
 
     override fun addViewsEventsListeners() {
         //
+    }
+
+    override fun onItemClick(new: New) {
+        binding.viewItemHomeNewsClearMessageButton.visibility = View.VISIBLE
     }
 }
