@@ -2,34 +2,6 @@
 
 Make your bill's payment easier for tenant, and the management stressless for the caretaker 🔥.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-What things you need to install the software and how to install them :
-
-```bash
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```bash
-Give the example
-```
-
-And repeat
-
-```bash
-until finished
-```
-
 ## Built With
 
 * [Android Studio](http://) - The Android IDE used
